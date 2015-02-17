@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<title>Level 4 - Áudio</title>
+	<link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "áudio";
+      background-color: #f1c40d;
+    }
+    audio {
+    	margin-top: 200px;
+    }
+    .btn-list {
+    	margin-top: 20px;
+    	display: block;
+    }
+    button {
+    	padding: 5px;
+    }
+	</style>
+</head>
+<body>
+	<div class="cow-frame">
+		<audio controls>
+			<source src="../../../common/zelda.mp3" type="audio/mpeg">
+			<source src="../../../common/zelda.ogg" type="audio/ogg">
+		</audio>
+
+		<div class="btn-list">
+			<button id="play-btn">Play</button>
+			<button id="pause-btn">Pause</button>
+			<button id="volume-up-btn">Aumenta volume</button>
+			<button id="volume-down-btn">Abaixa volume</button>
+		</div>
+  </div>
+
+<script>
+  var audio = document.querySelector('audio');
+  var playBtn = document.querySelector('#play-btn');
+  var pauseBtn = document.querySelector('#pause-btn');
+  var volumeUpBtn = document.querySelector('#volume-up-btn');
+  var volumeDownBtn = document.querySelector('#volume-down-btn');
+
+  console.dir(audio);
+
+  playBtn.addEventListener('click', function(e) {
+    audio.play();
+  });
+  
+  pauseBtn.addEventListener('click', function(e) {
+    audio.pause();  
+  });
+  
+  volumeUpBtn.addEventListener('click', function(e) {
+    console.log(audio.volume);
+  });
+
+  volumeDownBtn.addEventListener('click', function(e) {
+    
+  });
+
+</script>
+</body>
+</html>

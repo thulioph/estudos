@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 2 - Modernizr</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <script src="modernizr.min.js"></script>
+  <style>
+    body:before {
+      content: "detecção";
+      background-color: #e15933;
+    }
+    .screen {
+      position: absolute;
+      top: 95px;
+      bottom: 34px;
+      left: 34px;
+      right: 20px;
+      border-radius: 0 0 10px 10px;
+    }
+    .no-flexbox .screen {
+      background: red;
+    }
+    .flexbox .screen {
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <div class="screen"></div>
+  </div>
+  <script>
+    Modernizr.load({
+      test: Modernizr.geolocation,
+      yep : 'geo.js',
+      nope: 'geo-polyfill.js'
+    });
+  </script>
+</body>
+</html>

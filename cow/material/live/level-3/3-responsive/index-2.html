@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Level 3 - Responsive</title>
+ 	<link rel="stylesheet" href="../../../common/cow.css">
+	<style>
+		body:before {
+			content: "responsive";
+			background-color: #E74C3C;
+		}
+
+		/* code */
+		.global {}
+		.wrapper {
+			width: 960px;
+			margin: 0 auto;
+			position: relative;
+			text-align:left;
+		}
+		.topo {
+			padding:20px 0;
+			border-bottom: 1px solid #f1f0ea;
+		}
+		.logo {
+			float:left;
+			width:150px;
+			margin: 0 20px 0 0;
+			font-size: 3em;
+			line-height: 1.1em;
+			font-weight: 700;
+		}
+		.nav {float:right;}
+		.nav ul {
+			list-style:none;
+			text-align:right;
+		}
+		.nav li {
+			display: inline-block;
+			font-size:1.4em;
+			margin: 10px 10px 0;
+		}
+		.conteudo {padding: 50px 0;}
+		.col-01 {
+			width:700px;
+			float:left;
+			margin-right:40px;
+		}
+		.col-02 {
+			width:220px;
+			float:left;
+		}
+		.conteudo img {width:100%;}
+
+		@media only screen and (max-width: 1000px){
+			.nav {float:none;}
+			.nav ul {
+				text-align:center;
+			}
+			.nav li {
+				display:block;
+				/*font-size:1.4em;*/
+				margin: 10px;
+			}
+			.logo{
+				float: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="global cow-ui">
+		<div class="wrapper">
+			<header class="topo">
+				<h1 class="logo">logo</h1>
+				<nav class="nav">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main class="conteudo">
+				<div class="col-01">
+					<h2>Lorem ipsum dolor sit</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, quisquam iste consequatur labore obcaecati rem ut doloremque qui vero omnis beatae nostrum a animi minima rerum excepturi quod! Odio, nam!</p>
+					<p>
+						<img src="http://www.blogizazilli.com/wp-content/uploads/2012/09/gloria-maria-montagem.jpg" alt="" />
+					</p>
+					<p>Consequuntur, debitis, et, illum quos mollitia neque voluptatum labore voluptatibus libero culpa ut harum beatae ipsam pariatur unde hic magni qui eius eos tenetur consectetur eveniet repellat eaque delectus soluta.</p>
+					<p>Magni, esse non doloribus dignissimos quos impedit consequuntur numquam repudiandae ullam vel quidem quo nulla excepturi magnam necessitatibus expedita iusto tenetur fugiat ad nihil rerum a at eaque voluptatibus quas.</p>
+				</div>
+				<div class="col-02">
+					<div class="bloco"></div>
+					<div class="bloco"></div>
+					<div class="bloco"></div>
+				</div>
+			</main>
+		</div>
+	</div>
+</body>
+</html>

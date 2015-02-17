@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Level 3 - Botões</title>
+ 	<link rel="stylesheet" href="../../../common/cow.css">
+	<style>
+		body:before {
+			content: "botões";
+			background-color: #E74C3C;
+		}
+		.btn {
+			display: inline-block;
+			margin: 20px;
+		}
+
+		/* code */
+		.btn {
+			padding: 20px 40px;
+			background-color: #3498db;
+			font-size: 1.8em;
+			color: #fff;
+			border-radius: 4px;
+			box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.4),
+						inset 0 -2px 2px 0 rgba(0,0,0,0.4),
+						0 2px 2px 0 rgba(0,0,0,0.4);
+			/*background-image: linear-gradient(to bottom, red 10%, yellow);*/
+			/*background-image: linear-gradient(to bottom, red -20%, yellow 150%);*/
+			/*background-size: auto 2px;*/
+			background-image: linear-gradient(to bottom, rgba(0,0,0,0),rgba(0,0,0,0.4));
+			transition: all 0.5s linear;
+		}
+		.btn:hover{
+			color: black;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<section class="flat">
+		<a href="#" class="btn">botao</a>
+	</section>
+</body>
+</html>

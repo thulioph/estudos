@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Vídeo</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "vídeo";
+      background-color: #f1c40d;
+    }
+    video {
+      margin-top: 100px;
+    }
+    .btn-list {
+      margin-top: 20px;
+      display: block;
+    }
+    button {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <video controls>
+      <source src="../../../common/movie.mp4" type="video/mp4">
+      <source src="../../../common/movie.ogg" type="video/ogg">
+    </video>
+
+    <div class="btn-list">
+      <button id="play-btn">Play</button>
+      <button id="pause-btn">Pause</button>
+      <button id="duracao-btn">Duração</button>
+      <button id="trinta-btn">30sec</button>
+    </div>
+  </div>
+
+  <script>
+    var video = document.getElementsByTagName("video")[0];
+
+    var playBtn    = document.getElementById("play-btn");
+    var pauseBtn   = document.getElementById("pause-btn");
+    var duracaoBtn = document.getElementById("duracao-btn");
+    var trintaBtn  = document.getElementById("trinta-btn");
+
+    playBtn.addEventListener('click', function() {
+      video.play();
+    });
+
+    pauseBtn.addEventListener('click', function() {
+      video.pause();
+    });
+
+    duracaoBtn.addEventListener('click', function() {
+      console.log(video.duration);
+    });
+
+    trintaBtn.addEventListener('click', function() {
+      video.currentTime = 30;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Formulários</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "form";
+      background-color: #f1c40d;
+    }
+    .cow-ui {
+      overflow-y: scroll;
+      position: absolute;
+      top:95px;
+      bottom: 34px;
+      left: 34px;
+      right: 20px;
+      background-color:#fff;
+      border-radius: 0 0 10px 10px;
+      text-align: left;
+      padding:50px;
+    }
+    input {
+      display: block;
+      margin: 2em auto;
+    }
+    input[type=submit] {
+      cursor: pointer;
+    }
+    input[type=text]:invalid {
+      border: 3px solid #ffdddd;
+    }
+
+    input[type=text]:valid {
+      border: 3px solid #ddffdd;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <form class="cow-ui">
+      <input name="nome" type="text" placeholder="João da Silva" autofocus required>
+      <input name="cep" type="text" placeholder="XXXXX-XXX" required pattern="[0-9]{5}[\-]?[0-9]{3}">
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 3 - Slide</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+<style>
+  body:before {
+    content: "slide";
+    background-color: #E74C3C;
+  }
+  body{
+    background-image: 
+    -webkit-radial-gradient(center, circle contain, rgba(255,255,255,0.5), 
+      rgba(255,255,255,0));
+    -webkit-animation: fundo 0.2s infinite linear;
+  }
+ 
+  @-webkit-keyframes fundo{
+    0%, 100%{background-color: blue;}
+    40%{background-color: pink};
+    60%{background-color: yellow};
+    80%{background-color: red};
+  }
+  .slide {
+    position: absolute;
+    top:95px;
+    bottom: 34px;
+    left: 34px;
+    right: 20px;
+    padding: 50px;
+    background-image: 
+    -webkit-radial-gradient(center, circle contain, red 50%, transparent 50%), 
+    -webkit-radial-gradient(center, circle contain, red 50%, transparent 50%);
+    -webkit-animation: fundo 0.2s infinite linear;
+  }
+  h2,p{
+    font-family: 'Lily Script One', cursive;
+  }
+  h2{
+    font-size: 50px;
+    line-height: 1em;
+    color: #2b2b2b;
+    text-shadow: 5px 5px 0 rgba(255,0,0,0.3), -5px -5px 0 rgba(0,0,255,0.3);
+  }
+  p{
+    line-height: 2em;
+    font-size: 20px;
+    color: #777;
+    font-weight: 100;
+  }
+</style>
+</head>
+<body>
+  <div class="cow-frame">
+    <div class="slide">
+      <h2>Lorem ipsum dolor sit amet</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, perferendis, maiores, ad nisi blanditiis ab quos minima quis aspernatur ipsam alias at consectetur tenetur commodi neque id reprehenderit veritatis voluptatibus. Illo, dolorum ipsa hic praesentium porro perferendis fugit nesciunt voluptatibus.</p>
+    </div>
+  </div>
+</body>
+</html>

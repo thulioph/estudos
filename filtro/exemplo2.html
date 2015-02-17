@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exemplo 2</title>
+</head>
+<style>
+	li{
+		float: left;
+		margin: 10px !important;
+	}
+</style>
+<link rel="stylesheet" href="http://mixitup.io/demos/cards.css">
+
+<body id="PlayingCards">
+
+		<div class="wrapper wf">
+			<!-- BEGIN CONTROLS -->
+			<nav>
+				<!-- FILTER CONTROLS -->
+				<ul>
+					<li class="filter" data-filter="hearts"><span></span></li>
+					<li class="filter" data-filter="clubs"><span></span></li>
+					<li class="filter" data-filter="diamonds"><span></span></li>
+					<li class="filter" data-filter="spades"><span></span></li>
+				</ul>
+			</nav>
+
+			<ul id="Deck" class="just">
+				<li class="mix clubs" data-rank="0"></li>
+				<li class="mix hearts" data-rank="2"></li>
+				<li class="mix diamonds" data-rank="5"></li>
+				<li class="mix spades" data-rank="3"></li>
+				<li class="mix clubs" data-rank="12"></li>
+				<li class="mix spades" data-rank="13"></li>
+				<li class="mix clubs" data-rank="7"></li>
+				<li class="mix hearts" data-rank="6"></li>
+				<li class="mix diamonds" data-rank="12"></li>
+				<li class="mix spades" data-rank="9"></li>
+				<li class="mix clubs" data-rank="13"></li>
+				<li class="mix spades" data-rank="4"></li>
+				<li class="mix clubs" data-rank="10"></li>
+				<li class="mix spades" data-rank="2"></li>
+				<li class="mix clubs" data-rank="8"></li>
+				<li class="mix hearts" data-rank="11"></li>
+				<li class="mix diamonds" data-rank="0"></li>
+				<li class="mix clubs" data-rank="6"></li>
+
+				<li class="mix clubs" data-rank="0"></li>
+				<li class="mix hearts" data-rank="2"></li>
+				<li class="mix diamonds" data-rank="5"></li>
+				<li class="mix spades" data-rank="3"></li>
+				<li class="mix clubs" data-rank="12"></li>
+				<li class="mix spades" data-rank="13"></li>
+				<li class="mix clubs" data-rank="7"></li>
+				<li class="mix hearts" data-rank="6"></li>
+				<li class="mix diamonds" data-rank="12"></li>
+				<li class="mix spades" data-rank="9"></li>
+				<li class="mix clubs" data-rank="13"></li>
+				<li class="mix spades" data-rank="4"></li>
+				<li class="mix clubs" data-rank="10"></li>
+				<li class="mix spades" data-rank="2"></li>
+				<li class="mix clubs" data-rank="8"></li>
+				<li class="mix hearts" data-rank="11"></li>
+				<li class="mix diamonds" data-rank="0"></li>
+				<li class="mix clubs" data-rank="6"></li>
+
+				<li class="mix clubs" data-rank="0"></li>
+				<li class="mix hearts" data-rank="2"></li>
+				<li class="mix diamonds" data-rank="5"></li>
+				<li class="mix spades" data-rank="3"></li>
+				<li class="mix clubs" data-rank="12"></li>
+				<li class="mix spades" data-rank="13"></li>
+				<li class="mix clubs" data-rank="7"></li>
+				<li class="mix hearts" data-rank="6"></li>
+				<li class="mix diamonds" data-rank="12"></li>
+				<li class="mix spades" data-rank="9"></li>
+				<li class="mix clubs" data-rank="13"></li>
+				<li class="mix spades" data-rank="4"></li>
+				<li class="mix clubs" data-rank="10"></li>
+				<li class="mix spades" data-rank="2"></li>
+				<li class="mix clubs" data-rank="8"></li>
+				<li class="mix hearts" data-rank="11"></li>
+				<li class="mix diamonds" data-rank="0"></li>
+				<li class="mix clubs" data-rank="6"></li>
+
+
+				<!-- <li class="gap"></li>
+				<li class="gap"></li>
+				<li class="gap"></li>
+				<li class="gap"></li>
+				<li class="gap"></li> -->
+			</ul>
+
+		</div>
+
+	</body>
+
+	<script src="jquery.min.js"></script>
+	<script src="jquery.mixitup.min.js"></script>
+
+	<script>
+		$(function(){
+			$('#Deck').mixitup({
+				effects: ['fade'],
+				multiFilter: true,
+				showOnLoad: 'hearts diamonds spades clubs'
+			});
+		});
+	</script>
+
+</html>

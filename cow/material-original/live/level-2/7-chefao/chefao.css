@@ -1,0 +1,75 @@
+
+/* code */
+.global {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+	text-align:left;
+}
+header {
+	padding:20px 0;
+	border-bottom: 1px solid #f1f0ea;
+}
+header h1 {
+	float:left;
+	width:150px;
+	margin: 0 20px 0 0;
+	font-size: 3em;
+	line-height: 1.1em;
+	font-weight: 700;
+}
+nav {float:right;}
+nav ul {
+	list-style:none;
+	text-align:right;
+}
+nav li {
+	display: inline-block;
+	font-size:1.4em;
+	margin: 10px 10px 0;
+}
+main {padding: 50px 0;}
+main video {width:100%;}
+article {
+	width:700px;
+	float:left;
+	margin-right:40px;
+}
+.cow-ui article h1 {
+	font-size:3em;
+	margin-bottom:.5em;
+}
+aside {
+	padding:20px;
+	background-color: #fff;
+	width:180px;
+	float:left;
+}
+.cow-ui aside h1 {font-size:2em;}
+.cow-ui aside p {font-size:1.6em;}
+form {
+	background-color: #e15933;
+	padding:20px;
+	margin: 0 -20px -20px;
+}
+form label {
+	font-size:1.4em;
+	margin-bottom:.5em;
+	color:#fff;
+	display: block;
+}
+.cow-ui form input, .cow-ui form textarea {
+	width: 100%;
+	margin:0 0 1em;
+	border:none;
+	color:#fff;
+	background-color: rgba(0,0,0,.3);
+	outline:0;
+}
+.cow-ui form input[type=submit] {background-color: #00b7d4;}
+footer {
+	clear: both;
+	text-align:right;
+	padding:20px;
+	margin: 50px 0;
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 3 - Slide</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+<style>
+  body:before {
+    content: "slide";
+    background-color: #E74C3C;
+  }
+  .slide {
+    position: absolute;
+    top:95px;
+    bottom: 34px;
+    left: 34px;
+    right: 20px;
+    background-color:#b8e1e7;
+    background-image:-webkit-radial-gradient(center,  circle closest-corner, rgba(255,255,255,.8) 30%, rgba(255,255,255,0));
+    background-image:-moz-radial-gradient(center,  circle closest-corner, rgba(255,255,255,.8) 30%, rgba(255,255,255,0));
+    background-image:radial-gradient(center,  circle closest-corner, rgba(255,255,255,.8) 30%, rgba(255,255,255,0));
+    background-position: center center;
+    background-size: 100% 100%;
+    border-radius: 0 0 10px 10px;
+    text-align: left;
+    padding:50px;
+    -webkit-animation: slide 20s infinite linear;
+    -moz-animation: slide 20s infinite linear;
+    animation: slide 20s infinite linear;
+  }
+  @-webkit-keyframes slide{
+    0%, 100% {background-color:#c7f0cd;}
+    40% {background-color:#eecfc6;}
+    80% {background-color:#b8e1e7;}
+  }
+  @-moz-keyframes slide{
+    0%, 100% {background-color:#c7f0cd;}
+    40% {background-color:#eecfc6;}
+    80% {background-color:#b8e1e7;}
+  }
+  @keyframes slide{
+    0%, 100% {background-color:#c7f0cd;}
+    40% {background-color:#eecfc6;}
+    80% {background-color:#b8e1e7;}
+  }
+  .slide h2 {
+    position: relative;
+    top: -30px;
+    opacity:0;
+    width: 450px;
+    font-family: 'Fauna One', serif;
+    font-size:60px;
+    line-height: 1em;
+    font-weight: 100;
+    color:#2b2b2b;
+    text-shadow:0 2px 1px #fff;
+    margin-bottom:.3em;
+    -webkit-animation: title 1s 1 linear forwards;
+    -moz-animation: title 1s 1 linear forwards;
+    animation: title 1s 1 linear forwards;
+  }
+  @-webkit-keyframes title {
+    to {
+      top: 0px;
+      opacity:1;
+    }
+  }
+  @-moz-keyframes title {
+    to {
+      top: 0px;
+      opacity:1;
+    }
+  }
+  @keyframes title {
+    to {
+      top: 0px;
+      opacity:1;
+    }
+  }
+  .slide p {
+    width: 450px;
+    font-family: 'Fauna One', serif;
+    font-size:20px;
+    line-height: 1.8em;
+    color:#555;
+    margin-bottom:1.5em;
+    text-shadow:0 1px 0 #fff;
+  }
+</style>
+</head>
+<body>
+  <div class="cow-frame">
+    <div class="slide">
+      <h2>Lorem ipsum dolor sit amet</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, perferendis, maiores, ad nisi blanditiis ab quos minima quis aspernatur ipsam alias at consectetur tenetur commodi neque id reprehenderit veritatis voluptatibus. Illo, dolorum ipsa hic praesentium porro perferendis fugit nesciunt voluptatibus.</p>
+    </div>
+  </div>
+</body>
+</html>

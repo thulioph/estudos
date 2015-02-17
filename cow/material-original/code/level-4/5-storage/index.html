@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Storage</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "storage";
+      background-color: #f1c40d;
+    }
+    p {
+    	text-align: left;
+    	display: block;
+    	font-size: 16px;
+    	padding: 20px 0 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, eveniet quo tempora amet ea sequi maiores velit mollitia atque porro dolorum in dignissimos molestias consequatur dolorem aut error quis corporis!</p>
+  </div>
+
+  <script>
+  	var p = document.querySelector('p');
+  	localStorage.setItem('conteudo', p.textContent);
+
+  	if (localStorage.getItem('conteudo')) {
+      console.log(localStorage.getItem('conteudo'));
+    }
+  </script>
+</body>
+</html>

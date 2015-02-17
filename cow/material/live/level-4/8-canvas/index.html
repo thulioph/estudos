@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Canvas</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "canvas";
+      background-color: #f1c40d;
+    }
+    canvas {
+      padding-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <canvas width="250" height="250"></canvas>
+  </div>
+
+
+<script>
+  // pega o elemento no DOM
+  var canvas = document.querySelector('canvas');
+
+  // necessário criar para utilizar o canvas, método 
+  var contexto = canvas.getContext('2d');
+
+  // passar as posições x, y, altura, largura para criar um retângulo  
+  contexto.rect(25, 25, 200, 200);
+  contexto.rect(90, 80, 20, 20);
+  contexto.rect(140, 80, 20, 20);
+
+  // desenhar linha moveTo e lineTo
+  contexto.moveTo(50,180);
+  contexto.lineTo(200, 180);
+
+  // Coordenadas do desenho
+
+  // largura da linha 
+  contexto.lineWidth = 10;
+  // cor da linha
+  contexto.strokeStyle = 'grey';
+  // execute e desenhe na tela
+  contexto.stroke();
+
+
+
+</script>
+
+</body>
+</html>

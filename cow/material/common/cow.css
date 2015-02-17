@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'latoregular', sans-serif;
+  font-size: 10px;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+body:before {
+  display: block;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  font-size: 1.5em;
+  color: #fff;
+  padding: 10px;
+  width: 170px;
+  text-align: center;
+}
+
+hgroup:after,nav:after,footer:after,header:after,section:after,div:after,ul:after,ol:after,li:after,dl:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.cow-frame {
+  background: url(frame.png) no-repeat;
+  width: 854px;
+  height: 658px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -329px 0 0 -429px;
+  padding: 95px 20px 45px 34px;
+  overflow: hidden;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cow-ui h2 {
+  font-size: 4em;
+  line-height: 1.1em;
+  font-weight: 700;
+  margin: 0 0 .4em;
+  text-align: center;
+}
+
+.cow-ui h3 {
+  font-size: 3em;
+  line-height: 1.1em;
+  font-weight: 700;
+  margin: 0 0 .4em;
+  text-align: center;
+}
+
+.cow-ui p {
+  font-size: 1.8em;
+  line-height: 1.6em;
+  font-weight: 200;
+  margin: 0 0 1.4em;
+}
+
+.cow-ui a {
+  color: #e74c3c;
+}
+
+.cow-ui a:hover,.cow-ui a:focus {
+  color: #f26670;
+}
+
+.cow-ui .bloco {
+  position: relative;
+  background-color: #f1f0ea;
+  min-height: 100px;
+  background: ;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 2em;
+}
+
+.cow-ui .bloco:before {
+  content: "bloco";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-top: -9px;
+  font-size: 1.8em;
+}
+
+/* forms */
+.cow-ui input,.cow-ui textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font: normal normal 14px/1em 'Lato', sans-serif;
+  color: #777;
+  display: block;
+  width: 20em;
+  margin: 20px;
+}
+
+.cow-ui textarea {
+  height: 8em;
+  line-height: 1.5em;
+}
+
+.cow-ui input[type=color] {
+  padding: 0;
+  border: 0;
+  width: 50px;
+  height: 50px;
+}
+
+@font-face {
+  font-family: 'latoregular';
+  src: url('fonts/lato-regular-webfont.eot');
+  src: url('fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/lato-regular-webfont.woff') format('woff'), url('fonts/lato-regular-webfont.ttf') format('truetype'), url('fonts/lato-regular-webfont.svg#latoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

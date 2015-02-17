@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Geolocation</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "geolocation";
+      background-color: #f1c40d;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <div id="map"></div>
+  </div>
+
+<script>
+    // captura o mapa
+    var local = document.querySelector('map');
+
+    // abre a api geolocalização
+    navigator.geolocation.getCurrentPosition(sucesso);
+
+    // função de sucesso quando pegar a localização
+    function sucesso(position) {
+      console.log(position);
+
+      // Cria variáveis para pegar a latitude e longitude
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+
+      // Cria uma imagem dinamicamente no html
+      var img = new Image();
+
+      // utiliza a api do google maps para executar a localização
+      img.src = 'http://maps.googleapis.com/maps/api/staticamap?center=' + latitude = ',' + longitude + '&zoom-136&size=900x518&sensor=false';
+
+      // Imprime na dentro da div map a imagem da localização
+      var map = document.querySelector('#map');
+        map.appendChild(img);
+    }
+
+</script>
+
+</body>
+</html>

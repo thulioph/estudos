@@ -1,0 +1,49 @@
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+.box-purple {
+  display: inline;
+  float: left;
+  width: 220px;
+  margin: 0 10px;
+  background-color: purple;
+}
+.box-green {
+  display: inline;
+  float: left;
+  width: 220px;
+  margin: 0 10px;
+  background-color: green;
+}
+.box-yellow {
+  display: inline;
+  float: left;
+  width: 140px;
+  margin: 0 10px;
+  margin-right: 490px;
+  margin-bottom: 10px;
+  background-color: yellow;
+}
+.box-black {
+  display: inline;
+  float: left;
+  width: 300px;
+  margin: 0 10px;
+  background-color: black;
+}
+.box-blue {
+  display: inline;
+  float: left;
+  width: 300px;
+  margin: 0 10px;
+  background-color: blue;
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Canvas</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "canvas";
+      background-color: #f1c40d;
+    }
+    canvas {
+      padding-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <canvas width="250" height="250"></canvas>
+  </div>
+
+  <script>
+    var canvas   = document.querySelector("canvas");
+    var contexto = canvas.getContext("2d");
+
+    // contexto.rect(25, 25, 200, 200); // Cabeça
+    // contexto.rect(90, 80, 20, 20); // Olho esquerdo
+    // contexto.rect(140, 80, 20, 20); // Olho direito
+
+    // contexto.moveTo(50, 180);
+    // contexto.lineTo(200, 180); // Boca
+
+    // contexto.lineWidth = 10;
+    // contexto.strokeStyle = "grey";
+    // contexto.stroke();
+
+    contexto.arc(110, 110, 100, 0, Math.PI*2, true); // Cabeça
+
+    contexto.moveTo(165, 120);
+    contexto.arc(110, 120, 55, 0, Math.PI, false); // Boca
+
+    contexto.moveTo(90, 75);
+    contexto.arc(85, 75, 5, 0, Math.PI*2, true); // Olho esquerdo
+
+    contexto.moveTo(135,75);
+    contexto.arc(140, 75, 5, 0, Math.PI*2, true); // Olho direito
+
+    contexto.lineWidth = 10;
+    contexto.strokeStyle = "grey";
+    contexto.stroke();
+  </script>
+</body>
+</html>

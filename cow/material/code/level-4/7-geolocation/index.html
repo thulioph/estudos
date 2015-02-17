@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Geolocation</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "geolocation";
+      background-color: #f1c40d;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <div id="map"></div>
+  </div>
+
+  <script>
+  var success = function(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    var img = new Image();
+    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=900x518&sensor=false";
+
+    var map = document.querySelector('#map');
+    map.appendChild(img);
+  };
+
+  navigator.geolocation.getCurrentPosition(success);
+  // navigator.geolocation.watchPosition(success);
+  </script>
+</body>
+</html>

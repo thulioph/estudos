@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 4 - Chefão</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "chefão";
+      background-color: #f1c40d;
+    }
+    label {
+      text-align: left;
+      display: block;
+      font-size: 16px;
+      padding: 20px 0 0 20px;
+    }
+    #vida {
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <form class="cow-ui">
+      <label for="vida">Me conte sobre a sua vida</label>
+      <textarea id="vida" name="vida" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, perferendis, suscipit beatae tenetur ullam iure ducimus recusandae doloribus mollitia quibusdam ipsam facilis eos nam odio autem voluptate fuga reprehenderit cumque." cols="30" rows="30"></textarea>
+    </form>
+  </div>
+
+<script>
+  
+  // Define a variável campo para o textarea
+  var campo = document.querySelector('textarea');
+
+  // Captura/Escuta o evento de input da variável campo que 
+  campo.addEventListener('input', function(e) {
+
+  // o que foi capturado da variável campo, guarde no localStorage setando uma chave com o valor da textarea
+  localStorage.setItem('storage', campo.value);
+  });
+
+  // Permite que o usuário atualize a página e os itens estejam todos preenchidos 
+  campo.value = localStorage.getItem('storage');
+
+
+</script>
+
+</body>
+</html>

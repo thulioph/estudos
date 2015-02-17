@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level 2 - Load</title>
+  <link rel="stylesheet" href="../../../common/cow.css">
+  <style>
+    body:before {
+      content: "load";
+      background-color: #e15933;
+    }
+    .cow-frame {
+      padding-top: 200px;
+    }
+    meter, progress {
+      display: block;
+      margin: 2em auto;
+      width: 20em;
+    }
+    details progress {
+      display: inline-block;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="cow-frame">
+    <meter value="95" min="0" max="100" low="30" high="90" optimum="100" >
+    </meter>
+
+    <progress>carregando...</progress>
+
+    <details>
+      <summary>
+        <progress max="10000" value="5000">50%</progress>
+      </summary>
+      <dl>
+        <dt>Nome do arquivo:</dt>
+        <dd>FIlme.zip</dd>
+        <dt>Tamanho:</dt>
+        <dd>10000</dd>
+        <dt>Transferido:</dt>
+        <dd>5k</dd>
+      </dl>
+    </details>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

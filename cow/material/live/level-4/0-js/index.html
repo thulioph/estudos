@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Tipos Primitivos
+		
+		var	vaca; // criando uma variável
+		vaca = {}; //vaca agora é um objeto {}
+		vaca.nome = "Regina"; // vaca tem uma propriedade chamada nome que tem uma string (regina)
+		vaca.idade = 13; // a idade da vaca está em formado number
+		vaca.idade = "13";// a idade da vaca está em formato string 
+		vaca.irmas = ["Maria", "Joana", "Carla"]; // array de irmãs da vaca
+		vaca.irmaos = null; // Valor nulo
+		vaca.doente = true; // definindo um valor booleano para a vaca, pode ser true ou false
+
+		// console.log(vaca); // aponta no console o valor de vaca
+		console.log(typeof vaca.idade); //aponta no console um valor do objeto
+
+		// Concidicionais
+		// if (vaca.doente){
+		// 	console.log("Que pena");
+		// }
+		// else{
+		// 	console.log("QUe boa");
+		// }
+
+		for (var i = 0; 1 < vaca.irmas.length; i++){
+			console.log(vaca.irmas[i]);
+		}
+	</script>
+
+</body>
+</html>

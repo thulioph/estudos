@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Filtros</title>
+
+	<link rel="stylesheet" href="http://mixitup.io/demos/template.css">
+</head>
+<body>
+
+	<!-- <ul>
+		<li class="filter" data-filter="dogs">Dogs</li>
+		<li class="filter" data-filter="cats">Cats</li>
+		<li class="filter" data-filter="krakens">Krakens</li>
+		<li class="filter" data-filter="dogs cats">Dogs and Cats</li>
+	</ul>
+
+	<ul id="grid">
+		<li class="mix dogs">Dogs</li>
+		<li class="mix cats">Cats</li>
+		<li class="mix krakens">Krakens</li>
+		<li class="mix dogs cats">Dogs and Cats</li>
+	</ul>
+ -->
+
+ <div class="wrapper">
+			<h1><strong>MixItUp</strong> Boilerplate Template</h1>
+
+			<p>This template is intended as a simple, barebones starting place for 
+			any MixItUp project, without advanced features or fancy responsive styling.</p>
+
+			<!-- FILTER CONTROLS -->
+
+			<div class="controls">	
+				<h3>Filter Controls</h3>
+				<ul>
+					<li class="filter" data-filter="all">Show All</li>
+					<li class="filter" data-filter="category_1">Category 1</li>
+					<li class="filter" data-filter="category_2">Category 2</li>
+					<li class="filter" data-filter="category_3">Category 3</li>
+					<li class="filter" data-filter="category_3 category_1">Category 1 &amp; 3</li>
+				</ul>
+			</div>
+
+			<!-- SORT CONTROLS -->
+
+			<div class="controls">
+				<h3>Sort Controls</h3>
+				<ul>
+					<li class="sort" data-sort="data-cat" data-order="desc">Descending</li>
+					<li class="sort" data-sort="data-cat" data-order="asc">Ascending</li>
+					<li class="sort active" data-sort="default" data-order="desc">Default</li>
+				</ul>
+			</div>
+
+			<hr/>
+
+			<!-- GRID -->
+			<ul id="Grid">
+				<li class="mix category_1" data-cat="1">1</li>
+				<li class="mix category_3" data-cat="3">3</li>
+				<li class="mix category_2" data-cat="2">2</li>
+				<li class="mix category_3" data-cat="3">3</li>
+				<li class="mix category_2" data-cat="2">2</li>
+				<li class="mix category_1" data-cat="1">1</li>
+				<li class="gap"></li> <!-- "gap" elements fill in the gaps in justified grid -->
+			</ul>
+
+		</div>
+
+	<script src="jquery.min.js"></script>
+	<script src="jquery.mixitup.min.js"></script>
+
+	<script>
+		$(function(){
+			$('#Grid').mixitup({
+				animateGridList: false,
+				effects: ['fade']
+			});
+		});
+	</script>
+
+</body>
+</html>

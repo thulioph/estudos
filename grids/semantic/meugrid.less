@@ -1,0 +1,39 @@
+@import 'twigkit-semantic.gs-22e0e79/stylesheets/less/grid.less';
+
+// total de colunas (fixo)
+@columns: 8;
+// largura das colunas
+@columns-width: 88;
+// respiro entre as colunas
+@columns-gutter: 10;
+
+
+// tamanhos iguais
+.box-purple {
+	.column(3);
+	background-color: purple;
+}
+
+.box-green {
+	.column(3);
+	background-color: green;
+}
+
+.box-yellow {
+	.column(2);
+	// .push(2);
+	.pull(6);
+	margin-bottom: 10px;
+	background-color: yellow;
+}
+
+// tamanhos diferentes
+.box-black {
+	.column(4);
+	background-color: black;
+}
+
+.box-blue {
+	.column(4);
+	background-color: blue;
+}
