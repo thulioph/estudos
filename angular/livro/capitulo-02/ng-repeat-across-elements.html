@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+  <meta charset="UTF-8">
+  <title>Página 56</title>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+
+  <table>
+    <tr ng-repeat-start="note in ctrl.notes">
+      <td>{{note.label}}</td>
+    </tr>
+
+    <tr ng-repeat-end>
+      <td>Done: {{note.done}}</td>
+    </tr>
+  </table>
+  
+  <script src="js/angular.js"></script>
+  <script>
+    angular.module('myModule', [])
+      .controller('MainCtrl', [function() {
+        var self = this;
+
+        self.notes = [
+          {id: 1, label: 'First Note', done: false},
+          {id: 2, label: 'Second Note', done: false},
+          {id: 3, label: 'Third Note', done: true}
+        ]
+      }]);
+  </script>
+</body>
+</html>
+
+<!-- 
+
+  - O uso do `ng-repeat-start` e `ng-repeat-end` é baseicamente feito para indicar ao Angular onde inicia e onde termina a repetição. No exemplo acima, para cada label queremos uma tr com o status do done.
+
+ -->
+

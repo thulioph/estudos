@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+  <meta charset="UTF-8">
+  <title>Página 53</title>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+  
+  <button ng-click="ctrl.changeNotes()">Change Notes</button>
+
+  <h1>Elementos do DOM irão ser alterados quando clicar no botão</h1>
+
+  <div ng-repeat="note in ctrl.notes1">
+    {{note.$$hashKey}}
+
+    <span class="label">{{note.label}}</span>
+    <span class="author">{{note.done}}</span>
+  </div>
+
+  <br><br>
+
+  <h1>Elementos do DOM serão reutilizados</h1>
+
+  <div ng-repeat="note in ctrl.notes2 track by note.id">
+    {{note.$$hashKey}}
+
+    <span class="label">{{note.label}}</span>
+    <span class="author" ng-bind="note.done"></span>
+  </div>
+
+  <script src="js/angular.js"></script>
+  <script>
+    angular.module('myModule', [])
+      .controller('MainCtrl', [function() {
+        var self = this;
+
+        var notes = [
+          {
+            id: 1,
+            label: 'First Note',
+            done: false,
+            someRandom: 31431
+          },
+          {
+            id: 2,
+            label: 'Second Note',
+            done: false
+          },
+          {
+            id: 3,
+            label: 'Finished Third Note',
+            done: true
+          }
+        ];
+
+        self.notes1 = angular.copy(notes);
+        self.notes2 = angular.copy(notes);
+
+        self.changeNotes = function() {
+          notes = [
+            {
+              id: 1,
+              label: 'Changed Note',
+              done: false,
+              someRandom: 4242
+            },
+            {
+              id: 2,
+              label: 'Second Note',
+              done: false
+            },
+            {
+              id: 3,
+              label: 'Finished Third Note',
+              done: true
+            }
+          ];
+
+          self.notes1 = angular.copy(notes);
+          self.notes2 = angular.copy(notes);
+        };
+      }]);
+  </script>
+</body>
+</html>
+
+<!-- 
+
+  - Não utilize nenhuma variável que comece com $$, o angular já utiliza para suas próprias variáveis privadas.
+
+  - O `track-by` é utilizado para otimizar a manipulação do DOM, geralmente será feito nos id's dos objetos retornados do banco, garantindo que o AngularJS reutilize os elementos mesmo quando acessado várias vezes do servidor.
+
+ -->

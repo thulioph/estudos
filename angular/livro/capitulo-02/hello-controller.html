@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+  <meta charset="UTF-8">
+  <title>Página 39</title>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+  
+  <h1>{{ctrl.helloMsg}} AngularJs. </h1>
+  <br> <br>
+  <h1>{{ctrl.goodByeMsg}} AngularJs. </h1>
+  
+  <script src="js/angular.js"></script>
+  <script>
+    angular.module('myModule', [])
+      .controller('MainCtrl', [function() {
+        // variável definida usando a instância do controller.
+        this.helloMsg = 'Hello'; 
+
+        // variável interna
+        var goodByeMsg = 'Goodbye'; 
+        
+        // descomentando a linha abaixo, a mensagem aparece no HTML.
+        // this.goodByeMsg = 'Goodbye';
+      }]);
+  </script>
+</body>
+</html>
+
+<!-- 
+
+  A variável helloMsg foi definida na instância do controller usando o `this` e a variável GoodByeMsg como uma variável interna e local da instancia do controller.
+
+  Quando usou o `ng-controller` foi dado um nome (ctrl) para a instância do MainCtrl. Isso é conhecido como sintaxe `controllerAs`.
+
+  Variáveis usando a instância de um controller são acessíveis a partir do HTML já as locais e internas não.
+  
+  Tudo que for usado no HTML deverá ser declarado com this, variáveis internas não são exibidas no HTML.
+
+
+ -->

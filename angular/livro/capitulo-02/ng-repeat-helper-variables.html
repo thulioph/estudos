@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+  <meta charset="UTF-8">
+  <title>Página 52</title>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+
+  <div ng-repeat="note in ctrl.notes">
+    <div>First Element: {{$first}}</div>
+    <div>Middle Element: {{$middle}}</div>
+    <div>Last Element: {{$last}}</div>
+    <div>Index of Element: {{$index}}</div>
+    <div>At Even Position: {{$even}}</div>
+    <div>At Odd Position: {{$odd}}</div>
+
+    <span class="label">{{note.label}}</span>
+    <span class="status" ng-bind="note.done"></span>
+
+    <br><br>
+  </div>
+
+  <script src="js/angular.js"></script>
+  <script>
+    angular.module('myModule', [])
+      .controller('MainCtrl', [function() {
+        var self = this;
+        self.notes = [
+          {id: 1, label: 'First Note', done: false},
+          {id: 2, label: 'Second Note', done: false},
+          {id: 3, label: 'Done Note', done: true},
+          {id: 4, label: 'Last Note', done: false}
+        ]
+      }]);
+  </script>
+</body>
+</html>
+
+<!-- 
+
+  - O símbolo de $ utilizado nas variáveis se refere ao estado do repetidor do elemento em particular.
+
+  - $first, $middle, $last: são valores booleanos que informam se o elemento é o primeiro, se está entre o primeiro e o último ou se é o ultimo.
+
+  - $index: fornece o índice ou posição no array.
+
+  - $odd, $even: informa se o índice é par ou ímpar.
+
+ -->

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+  <meta charset="UTF-8">
+  <title>Página 50</title>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+
+  <div ng-repeat="(author, note) in ctrl.notes">
+    <span class="label">{{note.label}}</span>
+    <span class="author" ng-bind="author"></span>
+  </div>
+  
+
+  <script src="js/angular.js"></script>
+  <script>
+  angular.module('myModule', [])
+    .controller('MainCtrl', [function() {
+      var self = this;
+
+      self.notes = {
+        shyam: {
+          id: 1,
+          label: 'First Note', 
+          done: false
+        },
+        Misko: {
+          id: 3,
+          label: 'Finished Third Note', 
+          done: true
+        },
+        brad: {
+          id: 2,
+          label: 'Second Note', 
+          done: false
+        }
+      }
+    }]);
+  </script>
+</body>
+</html>
+
+<!-- 
+
+  - Ao utilizar a diretiva `ng-repeat` em um objeto as chaves serão ordenadas em ordem alfabética, levando em conta as diferenças das letras maiúsculas e minúsculas. Inicialmente as letras maiúsculas e depois em ordem alfabética.
+
+  - A diretiva `ng-repeat` recebe um argumento no formato variable in arrayExpression ou (key, value) in objectExpression. Quando usada com um array, os itens estarão na ordem definidas no array.
+
+ -->
