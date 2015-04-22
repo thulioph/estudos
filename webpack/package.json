@@ -1,0 +1,9 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "teste do webpacl",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
+}
