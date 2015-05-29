@@ -1,5 +1,5 @@
 var APP = APP || {};
-APP.Request = function() {
+APP.Request = {
   setUp: function() {
     this.ajax();
   },

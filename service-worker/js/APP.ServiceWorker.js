@@ -1,5 +1,5 @@
 var APP = APP || {};
-APP.ServiceWorker = function() {
+APP.ServiceWorker = {
   setUp: function() {
     this.listeners();
   },

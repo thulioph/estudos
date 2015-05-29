@@ -1,5 +1,5 @@
 var APP = APP || {};
-APP.Worker = function() {
+APP.Worker = {
   setUp: function() {
     this.init();
   },
