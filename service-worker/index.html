@@ -25,12 +25,13 @@
     <h4 class="text-muted">front-end with javascript:</h4>
 
     <div class="row">
-      <ul id="last-gists" class="last-gists col-xs-12"></ul>
+      <!-- <ul id="last-gists" class="last-gists col-xs-12"></ul> -->
+      <ul id="cache-entries"></ul>
     </div>
   </section>
 
   <!-- Template -->
-  <script id="github-template" type="text/x-handlebars-template">
+  <script id="github-templates" type="text/x-handlebars-template">
     {{#each gist}}
       <li class="bg-info col-xs-12">
         <div class="col-md-2">
