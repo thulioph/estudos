@@ -2,7 +2,7 @@ importScripts('serviceworker-cache-polyfill.js');
 
 var cache_version, current_cache, preFetchUrls, expectedCacheNames;
 
-cache_version = 1;
+cache_version = 2;
 current_cache = { prefetch: 'cache-v' + cache_version };
 
 self.addEventListener('install', function(event) {
