@@ -1,0 +1,28 @@
+a {
+  display: inline-block;
+}
+
+li {
+  margin: 10px 0 20px 0;
+  list-style: none;
+  clear: both;
+  min-height: 230px;
+}
+
+.description {
+  margin-top: 30px;
+}
+
+.btn {
+  margin: 5px auto;
+}
+
+.btn-primary {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+img {
+  border: 1px solid #000;
+}
