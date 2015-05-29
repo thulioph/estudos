@@ -1,0 +1,14 @@
+{
+  "name": "APP",
+  "_cacheHeaders": {
+    "ETag": "\"df3611d499f338671838796ba2bbfdadc03d55cd\"",
+    "Content-Length": "3861",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:df3611d49",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/denniscalazans/APP.js/master/APP.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/denniscalazans/APP.js/master/APP.js",
+  "_direct": true
+}
