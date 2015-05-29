@@ -29,17 +29,9 @@ APP.ServiceWorker = {
 
   onFetch: function(event) {
     console.log('Fetch: ', event);
-    console.log('Url requisitada: ', event.request.url);
+    console.log('Url requisitada: ', event.request);
 
-    event.respondWith(
-      caches.match(event.request)
-        .catch(function(){
-          return event.default;
-        })
-        .catch(function(){
-          return caches.match('data/post_fdallback.json');
-        })
-    );
+    // event.respondWith(new Response("Hello world!"));
   },
 
   onActive: function(event) {
