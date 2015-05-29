@@ -2,14 +2,15 @@
 // Tudo é baseado em promisses
 // =============
 
-
 // Dispara durante a instalação, baixando os recursos.
 this.oninstall = function(event) {
+  console.log('oninstall -> ', event);
   
   event.waitUntil(
-    caches.open('aplicacao').then(function(cache) {
+    caches.open('aplicacao-v2').then(function(cache) {
       return cache.addAll([
         '/index.html',
+        '/images/logo.jpeg',
         '/css/style.css',
         '/js/APP.Request.js'
       ]);
@@ -19,12 +20,12 @@ this.oninstall = function(event) {
 
 // Terminou de baixar e vai ficar valendo.
 this.onactive = function(event) {
-  console.log('Ativou!');
+  console.log('onactive -> ', event);
 };
 
 // Dispara todas as requisições da minha página (intercepta a url).
 this.onfetch = function(event) {
-  console.log('URL -> ', event.request.url);
+  console.log('onfetch -> ', event.request.url);
 
   event.respondWith(
     caches.match(event.request).then(function(response) {
@@ -35,4 +36,4 @@ this.onfetch = function(event) {
       return caches.match('/contato.html');
     });
   );
-}
+};
