@@ -1,43 +1,43 @@
 importScripts('serviceworker-cache-polyfill.js');
 
-var cache_version = 1;
+var cache_version, current_cache, preFetchUrls, expectedCacheNames;
 
-var current_caches = {
-  prefetch: 'window-cache-v' + cache_version
-};
+cache_version = 1;
+current_cache = { prefetch: 'cache-v' + cache_version };
 
 self.addEventListener('install', function(event) {
-  var urlsToPrefetch = [
+  preFetchUrls = [
     './index.html',
     './contato.html',
     './css/style.css',
-    './images/logo.jpeg',
-    './bower_components/bootstrap/dist/css/bootstrap-theme.css',
-    './bower_components/bootstrap/dist/css/bootstrap.css',
-    './bower_components/jquery/dist/jquery.js',
+    './images/user.jpeg',
+    './bower_components/bootstrap/dist/css/bootstrap.min.css',
+    './bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
+    './bower_components/jquery/dist/jquery.min.js',
     './bower_components/handlebars/handlebars.js',
-    './bower_components/APP/index.js'
+    './bower_components/APP/index.js',
+    './js/APP.Request.js'
   ];
 
-  console.log('Install event. Resources to prefetch: ', urlsToPrefetch);
+  console.log('Install | Recursos para prefetch: ', preFetchUrls);
 
   event.waitUntil(
-    caches.open(current_caches['prefetch'])
+    caches.open(current_cache['prefetch'])
     .then(function(cache) {
-      return cache.addAll(urlsToPrefetch.map(function(urlsToPrefetch) {
-        return new Request(urlsToPrefetch, {mode: 'no-cors'});
+      return cache.addAll(preFetchUrls.map(function(preFetchUrls) {
+        return new Request(preFetchUrls, {mode: 'no-cors'});
       })).then(function() {
-        console.log('All resources have been fetched and cached.');
+        console.log('Todos os recursos foram buscados e armazenados em cache.');
       });
     }).catch(function(error) {
-      console.log('Pre-fetching failed: ', error);
+      console.log('Prefetch error: ', error);
     })
   );
 });
 
 self.addEventListener('activate', function(event) {
-  var expectedCacheNames = Object.keys(current_caches).map(function(key) {
-    return current_caches[key];
+  expectedCacheNames = Object.keys(current_cache).map(function(key) {
+    return current_cache[key];
   });
 
   event.waitUntil(
@@ -45,7 +45,7 @@ self.addEventListener('activate', function(event) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
           if (expectedCacheNames.indexOf(cacheName) == -1) {
-            console.log('Deleting out of date cache:', cacheName);
+            console.log('Deletando cache antigo:', cacheName);
             return caches.delete(cacheName);
           }
         })
