@@ -43,13 +43,13 @@ APP.Request = {
       userImage = data[i].owner.avatar_url,
       filename = data[i].files[0].filename;
 
-      gists.push(
+      gists.push({
         link: gistLink,
         filename: filename,
         name: owner,
         image: userImage,
         profileUrl: profile
-      );
+      });
 
       output = template({ 
         gist: gist 
