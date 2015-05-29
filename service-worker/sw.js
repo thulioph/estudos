@@ -31,7 +31,7 @@ self.addEventListener('install', function(event) {
       });
     }).catch(function(error) {
       console.log('Pre-fetching failed: ', error);
-    });
+    })
   );
 });
 
