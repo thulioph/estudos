@@ -15,6 +15,6 @@ APP.Worker = {
   },
 
   handleError: function(error) {
-    console.error('Ops.. não rolou a instalação, ',™ error);
+    console.warn('Ops.. não rolou a instalação, ', error);
   }
 }
