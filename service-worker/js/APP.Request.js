@@ -6,7 +6,7 @@ APP.Request = {
 
   ajax: function() {
     $.ajax({
-      url: 'https://github.com/thulioph/estudos/blob/master/service-worker/data.json',
+      url: 'https://github.com/thulioph/estudos/blob/gh-pages/service-worker/data.json',
       type: 'GET',
 
       beforeSend: function() {
