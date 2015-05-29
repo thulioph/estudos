@@ -1,4 +1,4 @@
-this.addEventListener('install', function(event) {
+self.addEventListener('install', function(event) {
 
   event.waitUntil(
     caches.open('my-cache-v1').then(function(cache) {
@@ -13,7 +13,7 @@ this.addEventListener('install', function(event) {
 
 });
 
-this.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function(event) {
   console.log('Urls: ', event.request);
 
   event.respondWith(
@@ -23,6 +23,6 @@ this.addEventListener('fetch', function(event) {
   )
 });
 
-this.addEventListener('activate', function(event) {
+self.addEventListener('activate', function(event) {
   console.log('Activate: ', event);
 });
