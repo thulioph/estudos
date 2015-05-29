@@ -1,28 +1,34 @@
-self.addEventListener('install', function(event) {
+// Uma chamada de evento para cada requisição da minha página antes do browser requisitar.
+this.onfetch = function(event) {
+  console.log(event.request.url);
+}
 
-  event.waitUntil(
-    caches.open('my-cache-v1').then(function(cache) {
-      return cache.addAll([
-        '/',
-        '/css/style.css',
-        '/images/logo.jpeg',
-        '/js/APP.Request.js'
-      ]);
-    })
-  )
 
-});
+// self.addEventListener('install', function(event) {
 
-self.addEventListener('fetch', function(event) {
-  console.log('Urls: ', event.request);
+//   event.waitUntil(
+//     caches.open('my-cache-v1').then(function(cache) {
+//       return cache.addAll([
+//         '/',
+//         '/css/style.css',
+//         '/images/logo.jpeg',
+//         '/js/APP.Request.js'
+//       ]);
+//     })
+//   )
 
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request);
-    })
-  )
-});
+// });
 
-self.addEventListener('activate', function(event) {
-  console.log('Activate: ', event);
-});
+// self.addEventListener('fetch', function(event) {
+//   console.log('Urls: ', event.request);
+
+//   event.respondWith(
+//     caches.match(event.request).then(function(response) {
+//       return response || fetch(event.request);
+//     })
+//   )
+// });
+
+// self.addEventListener('activate', function(event) {
+//   console.log('Activate: ', event);
+// });
