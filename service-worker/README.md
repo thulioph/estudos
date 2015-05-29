@@ -3,6 +3,12 @@
 - https://thulioph.github.io/estudos/service-worker/
 
 
+### Comandos úteis:
+
+- chrome://serviceworker-internals/
+- chrome://inspect/#service-workers
+
+
 ## Links de apoio:
 
 - http://eduardomatos.me/appcache-manifest-e-serviceworker-as-partes-boas-e-ruins/
