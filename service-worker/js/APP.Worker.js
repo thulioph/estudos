@@ -17,6 +17,10 @@ APP.Worker = {
   },
 
   initialize: function() {
-    navigator.serviceWorker.register('/estudos/service-worker/js/APP.ServiceWorker.js');
+    navigator.serviceWorker.register('/estudos/service-worker/js/APP.ServiceWorker.js').then(function() {
+      console.log('Registrado!');
+    }, function(error) {
+      console.log('Problemas, ', error);
+    });
   }
 }
