@@ -5,17 +5,14 @@ APP.Worker = {
   },
 
   init: function() {
-    var that = this;
-
-    navigator.serviceWorker.register('/estudos/service-worker/js/APP.ServiceWorker.js').then(
-      
-      function(serviceWorker) {
-        serviceWorker.postMessage('ServiceWorker instalado com sucesso.');
-      },
-
-      function(error) {
-        console.warn('Ops.. não rolou a instalação, ', error);
-      }
-    );
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/estudos/service-worker/js/APP.ServiceWorker.js', {
+        scope: '/estudos/service-worker/'
+      }).then(function(reg) {
+        console.log('Yey!', reg);
+      }).catch(function(err) {
+        console.warn('Boo!', err);
+      });
+    }
   }
 }
