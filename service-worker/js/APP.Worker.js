@@ -17,6 +17,6 @@ APP.Worker = {
   },
 
   initialize: function() {
-    navigator.serviceWorker.register('APP.ServiceWorker.js');
+    navigator.serviceWorker.register('/js/APP.ServiceWorker.js');
   }
 }
