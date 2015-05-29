@@ -1,9 +1,10 @@
 importScripts('serviceworker-cache-polyfill.js');
 
-var cache_version, current_cache, preFetchUrls, expectedCacheNames;
+var cache_version, current_cache, preFetchUrls, expectedCacheNames, fetchUrl;
 
 cache_version = 4;
 current_cache = { prefetch: 'cache-v' + cache_version };
+fetchUrl = [];
 
 self.addEventListener('install', function(event) {
   
@@ -57,7 +58,11 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  console.log('Urls requisitadas:: ', event.request.url);
+  // console.log('Urls requisitadas:: ', event.request.url);
+
+  fetchUrl.push(event.request.url);
+
+  return console.log('fetchUrl: ', fetchUrl);
 
   event.respondWith(
     caches.match(event.request)
