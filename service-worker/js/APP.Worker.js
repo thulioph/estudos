@@ -9,11 +9,11 @@ APP.Worker = {
 
     navigator.serviceWorker.register('/js/APP.ServiceWorker.js').then(success, error);
 
-    this.success: function(serviceWorker) {
+    success: function(serviceWorker) {
       serviceWorker.postMessage('ServiceWorker instalado com sucesso.');
     }
 
-    this.error: function(error) {
+    error: function(error) {
       console.error('Ops.. não rolou a instalação, ',™ error);
     }
   }
