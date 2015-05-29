@@ -28,20 +28,16 @@ this.onactive = function(event) {
 
 // Dispara todas as requisições da minha página (intercepta a url).
 this.onfetch = function(event) {
-  // console.log('onfetch -> ', event.request.url);
+  console.log('onfetch -> ', event.request.url);
 
   event.respondWith(
-    new Response('<h1>Conteúdo!</h1>');
+    caches.match(event.request).then(function(response) {
+      // caso não tenha nada no cache, dispara a requisição e pega na rede.
+      return response || event.default();
+    }).catch(function() { // tratando erro da promisses com o catch (fallback)
+      // exibe algo que realmente esteja no cache
+      return caches.match('/contato.html');
+    });
   );
-
-  // event.respondWith(
-  //   caches.match(event.request).then(function(response) {
-  //     // caso não tenha nada no cache, dispara a requisição e pega na rede.
-  //     return response || event.default();
-  //   }).catch(function() { // tratando erro da promisses com o catch (fallback)
-  //     // exibe algo que realmente esteja no cache
-  //     return caches.match('/contato.html');
-  //   });
-  // );
 
 };
