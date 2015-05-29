@@ -13,23 +13,23 @@ APP.ServiceWorker = {
   },
 
   onInstall: function(event) {
-    var version, myResources;
+    // var version, myResources;
 
     console.log('Instal: ', event);
 
-    version = 1;
-    myResources = new Cache(
-      '/index.html', 
-      '/images/logo.jpeg'
-    );
+    // version = 1;
+    // myResources = new Cache(
+    //   '/index.html', 
+    //   '/images/logo.jpeg'
+    // );
 
-    event.waitUntil(myResources.ready());
-    cache.set('caches-' + version, myResources);
+    // event.waitUntil(fetchStuffAndInitDatabases());
+    // cache.set('caches-' + version, myResources);
   },
 
   onFetch: function(event) {
     console.log('Fetch: ', event);
-    console.log('Url requisitada: ', event.request);
+    // console.log('Url requisitada: ', event.request);
 
     // event.respondWith(new Response("Hello world!"));
   },
