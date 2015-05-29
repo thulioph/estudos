@@ -6,8 +6,9 @@ APP.Request = {
 
   ajax: function() {
     $.ajax({
-      url: 'https://raw.githubusercontent.com/thulioph/estudos/gh-pages/service-worker/data.json',
+      url: 'https://raw.githubusercontent.com/thulioph/estudos/gh-pages/service-worker/data.json?callback=?',
       type: 'GET',
+      dataType: 'JSONP',
 
       beforeSend: function() {
         console.log('Loading...');
