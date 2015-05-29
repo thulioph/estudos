@@ -7,14 +7,14 @@ APP.Worker = {
   init: function() {
     var that = this;
 
-    navigator.serviceWorker.register('/js/APP.ServiceWorker.js').then(success, error);
+    navigator.serviceWorker.register('/js/APP.ServiceWorker.js').then(that.handleSuccess, that.handleError);
+  },
 
-    success: function(serviceWorker) {
+  handleSuccess: function(serviceWorker) {
       serviceWorker.postMessage('ServiceWorker instalado com sucesso.');
-    }
+  },
 
-    error: function(error) {
-      console.error('Ops.. não rolou a instalação, ',™ error);
-    }
+  handleError: function(error) {
+    console.error('Ops.. não rolou a instalação, ',™ error);
   }
 }
