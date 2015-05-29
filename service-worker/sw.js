@@ -54,17 +54,17 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  console.log('Urls requisitadas:: ', event.request.url);
+// self.addEventListener('fetch', function(event) {
+//   console.log('Urls requisitadas:: ', event.request.url);
 
-  event.respondWith(
-    caches.match(event.request)
-    .then(function(response) {
-      if (response) {
-        return response;
-      }
+//   event.respondWith(
+//     caches.match(event.request)
+//     .then(function(response) {
+//       if (response) {
+//         return response;
+//       }
 
-      return fetch(event.request);
-    })
-  );
-});
+//       return fetch(event.request);
+//     })
+//   );
+// });
