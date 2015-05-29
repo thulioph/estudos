@@ -2,7 +2,7 @@ importScripts('serviceworker-cache-polyfill.js');
 
 var cache_version, current_cache, preFetchUrls, expectedCacheNames;
 
-cache_version = 3;
+cache_version = 4;
 current_cache = { prefetch: 'cache-v' + cache_version };
 
 self.addEventListener('install', function(event) {
@@ -56,17 +56,31 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-// self.addEventListener('fetch', function(event) {
-//   console.log('Urls requisitadas:: ', event.request.url);
+self.addEventListener('fetch', function(event) {
+  console.log('Urls requisitadas:: ', event.request.url);
 
-//   event.respondWith(
-//     caches.match(event.request)
-//     .then(function(response) {
-//       if (response) {
-//         return response;
-//       }
+  event.respondWith(
+    caches.match(event.request)
+    .then(function(response) {
+      if (response) {
+        return response;
+      }
 
-//       return fetch(event.request);
-//     })
-//   );
-// });
+      var fetchRequest = event.request.clone();
+
+      return fetch(fetchRequest).then(function(response) {
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
+        }
+
+        var responseToCache = response.clone();
+
+        caches.open(current_cache).then(function(cache) {
+          cache.put(event.request, responseToCache);
+        });
+
+        return response;
+      });
+    })
+  );
+});
