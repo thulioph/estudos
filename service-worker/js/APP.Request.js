@@ -8,7 +8,7 @@ APP.Request = {
     var that, query, language;
 
     that = this;
-    query = 'frontend+boilerplate';
+    query = 'frontend';
     language = 'javascript';
 
     $.ajax({
