@@ -7,7 +7,7 @@ APP.Worker = {
   init: function() {
     var that = this;
 
-    navigator.serviceWorker.register('/js/APP.ServiceWorker.js').then(that.handleSuccess, that.handleError);
+    navigator.serviceWorker.register('/estudos/service-worker/js/APP.ServiceWorker.js').then(that.handleSuccess, that.handleError);
   },
 
   handleSuccess: function(serviceWorker) {
