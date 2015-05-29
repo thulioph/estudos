@@ -1,17 +1,26 @@
 this.addEventListener('install', function(event) {
-  var myResources = new Cache (
-    "/index.html",
-    "/css/style.css",
-    "/images/logo.jpeg"
-    );
 
-  event.waitUntil(myResources.ready());
-  
-  caches.set('caches-v1', myResources);
+  event.waitUntil(
+    caches.open('my-cache-v1').then(function(cache) {
+      return cache.addAll([
+        '/',
+        '/css/style.css',
+        '/images/logo.jpeg',
+        '/js/APP.Request.js'
+      ]);
+    })
+  )
+
 });
 
 this.addEventListener('fetch', function(event) {
-  console.log('Url requisitada: ', event.request.url);
+  console.log('Urls: ', event.request);
+
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+  )
 });
 
 this.addEventListener('activate', function(event) {
