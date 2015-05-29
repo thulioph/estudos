@@ -7,7 +7,7 @@ APP.Worker = {
   init: function() {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/estudos/service-worker/js/APP.ServiceWorker.js', {
-        scope: '/estudos/service-worker/'
+        scope: '/estudos/service-worker/js/'
       }).then(function(reg) {
         console.log('Yey!', reg);
       }).catch(function(err) {
