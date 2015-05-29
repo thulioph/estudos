@@ -19,7 +19,7 @@ self.addEventListener('install', function(event) {
     './js/APP.Request.js'
   ];
 
-  console.log('Install | Recursos para prefetch: ', preFetchUrls);
+  console.log('Recursos para prefetch: ', preFetchUrls);
 
   event.waitUntil(
     caches.open(current_cache['prefetch'])
@@ -55,5 +55,16 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  console.log('Fetching urls: ', event.request.url);
+  console.log('Urls requisitadas:: ', event.request.url);
+
+  event.respondWith(
+    caches.match(event.request)
+    .then(function(response) {
+      if (response) {
+        return response;
+      }
+
+      return fetch(event.request);
+    })
+  );
 });
