@@ -21,7 +21,7 @@ self.addEventListener('install', function(event) {
 
   console.log('Install event. Resources to prefetch: ', urlsToPrefetch);
 
-  event.waintUntil(
+  event.waitUntil(
     caches.open(current_caches['prefetch'])
     .then(function(cache) {
       return cache.addAll(urlsToPrefetch.map(function(urlsToPrefetch) {
@@ -40,7 +40,7 @@ self.addEventListener('activate', function(event) {
     return current_caches[key];
   });
 
-  event.waintUntil(
+  event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
