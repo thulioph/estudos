@@ -18,7 +18,10 @@ APP.ServiceWorker = {
     console.log('Instal: ', event);
 
     version = 1;
-    myResources = new Cache('/index.html', '/images/logo.jpeg');
+    myResources = new Cache(
+      '/index.html', 
+      '/images/logo.jpeg'
+    );
 
     event.waitUntil(myResources.ready());
     cache.set('caches-' + version, myResources);
