@@ -29,7 +29,7 @@ APP.Request = {
   },
 
   templateGist: function(data) {
-    var source, template, gists, dataLengh, gistLink, owner, userImage, profile;
+    var source, template, gists, dataLengh, gistLink, owner, userImage, profile, filename;
 
     source = document.getElementById('gist-template').innerHTML;
     template = Handlebars.compile(source);
@@ -39,8 +39,23 @@ APP.Request = {
     for (var i = 0; i <= dataLengh; i++) {
       gistLink = data[i].html_url, 
       owner = data[i].owner.login,
+      profile = data[i].owner.html_url,
       userImage = data[i].owner.avatar_url,
-      profile = data[i].owner.url;
+      filename = data[i].files[0].filename;
+
+      gists.push(
+        link: gistLink,
+        filename: filename,
+        name: owner,
+        image: userImage,
+        profileUrl: profile
+      );
+
+      output = template({ 
+        gist: gist 
+      });
+
+      document.getElementById('last-gists').innerHTML = output;
     }
   }
 }

@@ -8,16 +8,30 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 </head>
 <body>
-  <section class="container">
+  <section class="container-fluid">
     <h1>Hello, estou testando service worker!</h1>
 
-    <h3>Last gists:</h3>
-    <aside id="last-gists" class="last-gists"></aside>
+    <h3>Last gists and their authors:</h3>
+
+    <div class="row">
+      <ul id="last-gists" class="last-gists col-xs-8"></ul>
+    </div>
   </section>
 
   <!-- Template -->
   <script id="gist-template" type="text/x-handlebars-template">
-    {{#each}}
+    {{#each gist}}
+      <li>
+        <a href="{{ profileUrl }}" title="{{ profileUrl }}" target="_blank">
+          <figure>
+            <img src="{{ image }}" alt="{{ profileUrl }}">
+          </figure>
+        </a>
+
+        <h5>
+          <a href="{{ link }}" target="_blank" title="{{ link }}">Link to Gist</a>
+        </h5>
+      </li>
     {{/each}}
   </script>
 
