@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Service Worker</title>
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 </head>
 <body>
-  <h1>Hello, estou testando service worker!</h1>
+  <section class="container">
+    <h1>Hello, estou testando service worker!</h1>
 
+    <h3>Last gists:</h3>
+    <aside id="last-gists" class="last-gists"></aside>
+  </section>
+
+  <!-- Template -->
+  <script id="gist-template" type="text/x-handlebars-template">
+    {{#each}}
+    {{/each}}
+  </script>
+
+  <!-- Libs -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"></script>
   <script src="bower_components/APP/index.js"></script>
   <script src="js/APP.Request.js"></script>
   <script src="js/APP.Worker.js"></script>
