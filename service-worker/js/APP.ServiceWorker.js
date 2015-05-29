@@ -12,6 +12,9 @@ this.oninstall = function(event) {
         '/index.html',
         '/images/logo.jpeg',
         '/css/style.css',
+        '/bower_components/jquery/dist/jquery.min.js',
+        '/bower_components/handlebars/handlebars.js',
+        '/bower_components/APP/index.js',
         '/js/APP.Request.js'
       ]);
     })
