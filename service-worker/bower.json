@@ -16,5 +16,9 @@
   "devDependencies": {
     "APP": "https://raw.githubusercontent.com/denniscalazans/APP.js/master/APP.js",
     "jquery": "~2.1.4"
+  },
+  "dependencies": {
+    "handlebars": "~3.0.3",
+    "bootstrap": "~3.3.4"
   }
 }
