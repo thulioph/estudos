@@ -2,35 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Service Worker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>Front-end Frameworks</title>
 
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <section class="container-fluid">
-    <h1>Hello, estou testando service worker!</h1>
+    <h1>Hello, i'm testing service worker!</h1>
 
-    <h3>Last gists and their authors:</h3>
+    <h4 class="text-muted">frameworks front-end with javascript:</h4>
 
     <div class="row">
-      <ul id="last-gists" class="last-gists col-xs-8"></ul>
+      <ul id="last-gists" class="last-gists col-xs-12"></ul>
     </div>
   </section>
 
   <!-- Template -->
-  <script id="gist-template" type="text/x-handlebars-template">
+  <script id="github-template" type="text/x-handlebars-template">
     {{#each gist}}
-      <li>
-        <a href="{{ profileUrl }}" title="{{ profileUrl }}" target="_blank">
-          <figure>
-            <img src="{{ image }}" alt="{{ profileUrl }}">
-          </figure>
-        </a>
+      <li class="bg-info col-xs-12">
+        <div class="col-md-2">
+          <h5>/{{ userName }}</h5>
 
-        <h5>
-          <a href="{{ link }}" target="_blank" title="{{ link }}">Link to Gist</a>
-        </h5>
+          <a href="{{ userProfile }}" title="Go to user profile" target="_blank">
+            <img width="150" height="150" src="{{ userImage }}" alt="{{ userName }}">
+            <figcaption>
+              <a href="{{ repoUrl }}" class="btn btn-primary" target="_blank" title="go to project!">go to project</a>
+            </figcaption>
+          </a>
+        </div>
+
+        <div class="col-md-9 description">
+          <h3>{{ projectName }}</h3>
+          <p>{{ description }}</p>
+          <a href="{{ homePage }}" target="_blank" title="go to project site">{{ homePage }}</a>
+        </div>
       </li>
     {{/each}}
   </script>
@@ -40,7 +50,7 @@
   <script src="bower_components/handlebars/handlebars.js"></script>
   <script src="bower_components/APP/index.js"></script>
   <script src="js/APP.Request.js"></script>
-  <script src="js/APP.Worker.js"></script>
+  <!-- // <script src="js/APP.Worker.js"></script> -->
 
   <script>APP.init();</script>
 </body>

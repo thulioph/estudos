@@ -5,14 +5,15 @@ APP.Request = {
   },
 
   ajax: function() {
-    var that;
+    var that, query, language;
 
     that = this;
+    query = 'frontend+framework';
+    language = 'javascript';
 
     $.ajax({
-      url: 'https://api.github.com/gists?callback=?',
+      url: 'https://api.github.com/search/repositories?q=' + query + '+language:' + language + '&sort=stars&order=desc',
       type: 'GET',
-      dataType: 'jsonp',
 
       beforeSend: function() {
         console.log('Loading...');
@@ -29,30 +30,35 @@ APP.Request = {
   },
 
   templateGist: function(data) {
-    var source, template, gists, dataLengh, gistLink, owner, userImage, profile, filename;
+    var source, template, gists, size, repoUrl, description, userName, 
+        userImage, userProfile, homePage, projectName;
 
-    source = document.getElementById('gist-template').innerHTML;
+    source = document.getElementById('github-template').innerHTML;
     template = Handlebars.compile(source);
     gists = [];
-    dataLengh = data.length;
+    size = data.total_count;
 
-    for (var i = 0; i <= dataLengh; i++) {
-      gistLink = data[i].html_url, 
-      owner = data[i].owner.login,
-      profile = data[i].owner.html_url,
-      userImage = data[i].owner.avatar_url,
-      filename = data[i].files[0].filename;
+    for (var i = 0; i < 30; i ++) {
+      repoUrl = data.items[i].html_url;
+      projectName = data.items[i].name;
+      description = data.items[i].description;
+      userName = data.items[i].owner.login;
+      userImage = data.items[i].owner.avatar_url;
+      userProfile = data.items[i].owner.html_url;
+      homePage = data.items[i].homepage;
 
       gists.push({
-        link: gistLink,
-        filename: filename,
-        name: owner,
-        image: userImage,
-        profileUrl: profile
+        repoUrl: repoUrl,
+        description: description,
+        userName: userName,
+        userImage: userImage,
+        userProfile: userProfile,
+        homePage: homePage,
+        projectName: projectName
       });
 
       output = template({ 
-        gist: gist 
+        gist: gists 
       });
 
       document.getElementById('last-gists').innerHTML = output;
