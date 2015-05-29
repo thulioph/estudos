@@ -7,7 +7,7 @@ this.oninstall = function(event) {
   console.log('oninstall -> ', event);
   
   event.waitUntil(
-    caches.open('aplicacao-v2').then(function(cache) {
+    caches.open('aplicacao-v3').then(function(cache) {
       return cache.addAll([
         '/index.html',
         '/images/logo.jpeg',
