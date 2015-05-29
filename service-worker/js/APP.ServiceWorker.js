@@ -1,34 +1,14 @@
-// Uma chamada de evento para cada requisição da minha página antes do browser requisitar.
+// Dispara durante a instalação, baixando os recursos.
+this.oninstall = function(event) {
+  console.log('Instalou!');
+};
+
+// Terminou de baixar e vai ficar valendo.
+this.onactive = function(event) {
+  console.log('Ativou!');
+};
+
+// Dispara todas as requisições da minha página (intercepta a url).
 this.onfetch = function(event) {
   console.log(event.request.url);
 }
-
-
-// self.addEventListener('install', function(event) {
-
-//   event.waitUntil(
-//     caches.open('my-cache-v1').then(function(cache) {
-//       return cache.addAll([
-//         '/',
-//         '/css/style.css',
-//         '/images/logo.jpeg',
-//         '/js/APP.Request.js'
-//       ]);
-//     })
-//   )
-
-// });
-
-// self.addEventListener('fetch', function(event) {
-//   console.log('Urls: ', event.request);
-
-//   event.respondWith(
-//     caches.match(event.request).then(function(response) {
-//       return response || fetch(event.request);
-//     })
-//   )
-// });
-
-// self.addEventListener('activate', function(event) {
-//   console.log('Activate: ', event);
-// });

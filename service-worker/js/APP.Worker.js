@@ -1,7 +1,7 @@
 var APP = APP || {};
 APP.Worker = {
   setUp: function() {
-    this.initialize();
+    this.register();
   },
 
   init: function() {
@@ -16,7 +16,7 @@ APP.Worker = {
     }
   },
 
-  initialize: function() {
+  register: function() {
     navigator.serviceWorker.register('/estudos/service-worker/js/APP.ServiceWorker.js').then(function() {
       console.log('Registrado!');
     }, function(error) {
