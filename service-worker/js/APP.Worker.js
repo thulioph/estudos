@@ -21,7 +21,7 @@ APP.Worker = {
 
     that = this;
 
-    if ('serviceWorker' in navigator && 'caches' in window) {
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js', {scope: './'})
       .then(that.waitUntilInstalled)
       .then(that.initializeUI)
