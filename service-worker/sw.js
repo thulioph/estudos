@@ -2,10 +2,12 @@ importScripts('serviceworker-cache-polyfill.js');
 
 var cache_version, current_cache, preFetchUrls, expectedCacheNames;
 
-cache_version = 2;
+cache_version = 3;
 current_cache = { prefetch: 'cache-v' + cache_version };
 
 self.addEventListener('install', function(event) {
+  
+  // Antes de fazer o fetch é indicado quais arquivos serão cacheados.
   preFetchUrls = [
     './index.html',
     './contato.html',
