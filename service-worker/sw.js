@@ -62,7 +62,7 @@ self.addEventListener('fetch', function(event) {
 
   fetchUrl.push(event.request.url);
 
-  return console.log('fetchUrl: ', fetchUrl);
+  console.log('fetchUrl: ', fetchUrl);
 
   event.respondWith(
     caches.match(event.request)
