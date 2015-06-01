@@ -60,7 +60,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   // fetchUrl.push(event.request.url);
 
-  return console.log('Urls requisitadas:: ', event.request.url);
+  console.log('Urls requisitadas:: ', event.request.url);
 
   event.respondWith(
     caches.match(event.request)
