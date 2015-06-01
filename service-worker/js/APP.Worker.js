@@ -8,9 +8,9 @@ APP.Worker = {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js', { scope: './'})
       .then(function(reg) {
-        console.log('Yey!', reg);
+        console.log('SW registrado: ', reg);
       }).catch(function(err) {
-        console.warn('Boo!', err);
+        console.warn('Erro no registro do sw: ', err);
       });
     } else {
       console.warn('Seu navegador não suporta service worker.');
