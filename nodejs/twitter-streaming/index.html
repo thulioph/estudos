@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twitter Streaming with socket.io</title>
+</head>
+<body>
+
+  <ul id="tweet" class="tweet"></ul>
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+
+  <script>
+    var socket = io();
+
+    socket.on('stream', function(tweetJSON){
+      $('#tweet').append($('<li>').text(tweetJSON.text));
+    });
+  </script>
+</body>
+</html>
