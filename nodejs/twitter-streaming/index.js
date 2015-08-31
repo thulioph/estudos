@@ -51,8 +51,8 @@ io.sockets.on('connection', function(socket) {
 
     io.sockets.emit('stream', tweetJSON);
     console.log(tweet);
-    console.log('lat: ', tweet.geo.coordinates[0]);
-    console.log('lng: ', tweet.geo.coordinates[1]);
+    // console.log('lat: ', tweet.geo.coordinates[0]);
+    // console.log('lng: ', tweet.geo.coordinates[1]);
     // console.log(tweet.text);
     // console.log(tweet.user.screen_name);
     // console.log(tweet.user.profile_image_url);
