@@ -40,12 +40,26 @@ io.sockets.on('connection', function(socket) {
     
     var tweetJSON = {
       text: tweet.text,
+      name: tweet.screen_name,
       image: tweet.user.profile_image_url,
+      lat: tweet.geo.coordinates[0],
+      lng: tweet.geo.coordinates[1],
       url: 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.user.id_str
     };
 
+    // var lat, lng;
+
     io.sockets.emit('stream', tweetJSON);
-    // console.log(tweet);
+    console.log(tweet);
+    console.log('lat: ', tweet.geo.coordinates[0]);
+    console.log('lng: ', tweet.geo.coordinates[1]);
+    // console.log(tweet.text);
+    // console.log(tweet.user.screen_name);
+    // console.log(tweet.user.profile_image_url);
+    // console.log(tweet.geo.coordinates);
+
+    // lat = tweet.geo.coordinates[0];
+    // lng = tweet.geo.coordinates[1];
     // io.sockets.emit('stream', tweet.text);
   });
 });

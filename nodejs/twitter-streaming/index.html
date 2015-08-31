@@ -3,20 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <title>Twitter Streaming with socket.io</title>
+
+  <style>
+    #mapa {
+      width: 100%;
+      height: 220px;
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <body>
+
+  <div id="mapa"></div>
 
   <ul id="tweet" class="tweet"></ul>
   
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+  <!-- // <script scr="mapa.js"></script> -->
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
 
   <script>
+
     var socket = io();
 
     socket.on('stream', function(tweetJSON){
-      $('#tweet').append($('<li>').text(tweetJSON.text));
+      // $('#tweet').append($('<li>').text());
+      var myLatlng = new google.maps.LatLng(tweetJSON.lat, tweetJSON.lng);
+
+      var mapOptions = {
+        zoom: 17,
+        center: myLatlng,
+        panControl: false,
+        // mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+        }
+      }
+
+
+      // Parâmetros do texto que será exibido no clique;
+      var contentString = tweetJSON.text;
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 700
+      });
+
+
+      // Exibir o mapa na div #mapa;
+      var map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
+
+
+      // Marcador personalizado;
+      var image = tweetJSON.image;
+
+      var marcadorPersonalizado = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          icon: image,
+          title: tweetJSON.name,
+          animation: google.maps.Animation.DROP
+      });
+
+
+      // Exibir texto ao clicar no ícone;
+      google.maps.event.addListener(marcadorPersonalizado, 'click', function() {
+        infowindow.open(map,marcadorPersonalizado);
+      });
+
+
+      // Estilizando o mapa;
+      // Criando um array com os estilos
+      var styles = [
+        {
+          stylers: [
+            { hue: "#41a7d5" },
+            { saturation: 60 },
+            { lightness: -20 },
+            { gamma: 1.51 }
+          ]
+        },
+        {
+          featureType: "road",
+          elementType: "geometry",
+          stylers: [
+            { lightness: 100 },
+            { visibility: "simplified" }
+          ]
+        },
+        {
+          featureType: "road",
+          elementType: "labels"
+        }
+      ];
+
+      // crio um objeto passando o array de estilos (styles) e definindo um nome para ele;
+      var styledMap = new google.maps.StyledMapType(styles, {
+        name: "Mapa Style"
+      });
+
     });
+
+  // Aplicando as configurações do mapa
+  // map.mapTypes.set('map_style', styledMap);
+  // map.setMapTypeId('map_style');
   </script>
 </body>
 </html>
