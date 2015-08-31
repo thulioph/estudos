@@ -2,79 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twitter Streaming with socket.io</title>
+  <title>Twitter + Socket.io + Google Maps API</title>
 
   <style>
+    body {
+      font-family: "Lucida Console", Monaco, monospace;
+    }
+
     #mapa {
       width: 100%;
       height: 220px;
       border: 1px solid black;
     }
+
+    .tweet {
+      width: 220px;
+      min-height: 60px;
+      height: auto;
+      position: relative;
+      padding: 5px 6px;
+    }
+
+    .tweet-item {
+      list-style-type: none;
+    }
+
+    .tweet-link {
+      text-decoration: none;
+      display: block;
+      color: black;
+    }
+
+    .tweet-link:hover {
+      background-color: #ccc;
+    }
+
+    figure {
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+      border-radius: 100%;
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: middle;
+    }
+
+    figure img { width: 100%; }
+
+    .text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .text h4 {}
   </style>
+
 </head>
 <body>
 
   <div id="mapa"></div>
 
-  <ul id="tweet" class="tweet"></ul>
+  <ul id="tweet-list" class="tweet">
+    <!-- <li class="tweet-item">
+      <a class="tweet-link" href="#">
+        <figcaption>
+          <img src="http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png" alt="">
+        </figcaption>
+
+        <div class="text">
+          <h4>@thulioph_</h4>
+          <p>Meu tweet :)</p>
+        </div>
+      </a>
+    </li> -->
+  </ul>
   
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-  <!-- // <script scr="mapa.js"></script> -->
   <script src="http://maps.googleapis.com/maps/api/js"></script>
 
   <script>
+    var socket, pontos, myLatlng, mapOptions, infowindow, map, marcadorPersonalizado, styles, styledMap;
 
-    var socket = io();
+    // pega a localização do usuário
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showMap, error);
+    } else {
+      console.log('not supported');
+    }
 
-    socket.on('stream', function(tweetJSON){
-      // $('#tweet').append($('<li>').text());
-      var myLatlng = new google.maps.LatLng(tweetJSON.lat, tweetJSON.lng);
+    function error(msg) {
+      console.log('Error: ', msg);
+    };
+    // ====
 
-      var mapOptions = {
-        zoom: 17,
+    // carrega o mapa sem pontos
+    function showMap(position) {
+      // pega a localização do usuário e insere em lat, lng
+      myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      
+      mapOptions = {
+        zoom: 11,
         center: myLatlng,
         panControl: false,
-        // mapTypeId: google.maps.MapTypeId.ROADMAP
         mapTypeControlOptions: {
           mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
         }
       }
 
+      map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
 
-      // Parâmetros do texto que será exibido no clique;
-      var contentString = tweetJSON.text;
-      var infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 700
+      marcadorPersonalizado = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        icon: 'https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-32.png',
+        title: 'Você está aqui!'
       });
 
-
-      // Exibir o mapa na div #mapa;
-      var map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
-
-
-      // Marcador personalizado;
-      var image = tweetJSON.image;
-
-      var marcadorPersonalizado = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          icon: image,
-          title: tweetJSON.name,
-          animation: google.maps.Animation.DROP
+      infowindow = new google.maps.InfoWindow({
+        content: 'Você está aqui!',
+        maxWidth: 700
       });
 
-
-      // Exibir texto ao clicar no ícone;
-      google.maps.event.addListener(marcadorPersonalizado, 'click', function() {
-        infowindow.open(map,marcadorPersonalizado);
-      });
-
+      infowindow.open(map, marcadorPersonalizado);
 
       // Estilizando o mapa;
-      // Criando um array com os estilos
-      var styles = [
+      styles = [
         {
           stylers: [
             { hue: "#41a7d5" },
@@ -97,20 +150,52 @@
         }
       ];
 
-      // crio um objeto passando o array de estilos (styles) e definindo um nome para ele;
-      var styledMap = new google.maps.StyledMapType(styles, {
+      styledMap = new google.maps.StyledMapType(styles, {
         name: "Mapa Style"
       });
 
       // Aplicando as configurações do mapa
       map.mapTypes.set('map_style', styledMap);
       map.setMapTypeId('map_style');
+    };
+    // ====
 
+    // carrega o mapa em tempo real
+    function showMapTweet(text, name, image, lat, lng) {
+
+      marcadorPersonalizado = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: map,
+        icon: image
+      });
+
+      marcadorPersonalizado.setMap(map);
+
+      infowindow = new google.maps.InfoWindow({
+        content: text,
+        maxWidth: 700
+      });
+
+      infowindow.open(map, marcadorPersonalizado);
+    };
+    // ====
+
+    // Socket io
+    socket = io();
+
+    socket.on('stream', function(tweetJSON){
+      var data = tweetJSON,
+          text = data.text,
+          name = data.name, 
+          image = data.image,
+          lat = data.lat, 
+          lng = data.lng;
+
+        showMapTweet(text, name, image, lat, lng);
+
+        // $("#tweet-list").append("<li class='tweet-item'><a class='tweet-link' target='_blank' href='#'><figure><img src='" + image + "'/></figure><div class='text'><h4>" + name + "</h4><p>" + text + "</p></div></a></li>");
     });
-
-  // Aplicando as configurações do mapa
-  // map.mapTypes.set('map_style', styledMap);
-  // map.setMapTypeId('map_style');
+    // ====
   </script>
 </body>
 </html>
