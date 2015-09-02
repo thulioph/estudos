@@ -35,11 +35,11 @@ io.sockets.on('connection', function(socket) {
       text: tweet.text,
       name: tweet.user.screen_name,
       image: tweet.user.profile_image_url,
-      lat: tweet.geo.coordinates[0],
-      lng: tweet.geo.coordinates[1]
+      endereco: tweet.place.full_name + ', ' + tweet.place.country
     };
 
     io.sockets.emit('stream', tweetJSON);
     console.log(tweet);
+    console.log(tweetJSON);
   });
 });

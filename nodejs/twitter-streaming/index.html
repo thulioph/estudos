@@ -62,27 +62,14 @@
 
   <div id="mapa"></div>
 
-  <ul id="tweet-list" class="tweet">
-    <!-- <li class="tweet-item">
-      <a class="tweet-link" href="#">
-        <figcaption>
-          <img src="http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png" alt="">
-        </figcaption>
-
-        <div class="text">
-          <h4>@thulioph_</h4>
-          <p>Meu tweet :)</p>
-        </div>
-      </a>
-    </li> -->
-  </ul>
+  <ul id="tweet-list" class="tweet"></ul>
   
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js"></script>
 
   <script>
-    var socket, pontos, myLatlng, mapOptions, infowindow, map, marcadorPersonalizado, styles, styledMap, notification, options;
+    var socket, geocoder, myLatlng, mapOptions, infowindow, map, marcadorPersonalizado, styles, styledMap, notification, options;
 
     // pega a localização do usuário
     if (navigator.geolocation) {
@@ -156,26 +143,38 @@
       // Aplicando as configurações do mapa
       map.mapTypes.set('map_style', styledMap);
       map.setMapTypeId('map_style');
+
+      geocoder = new google.maps.Geocoder();
     };
     // ====
 
     // carrega o mapa em tempo real
-    function showMapTweet(text, name, image, lat, lng) {
+    function showMapTweet(text, name, image, endereco) {
 
-      marcadorPersonalizado = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, lng),
-        map: map,
-        icon: image
+      geocoder.geocode({'address': endereco}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+
+          console.log('latlng: ', results[0].geometry.location.G, results[0].geometry.location.K);
+
+            marcadorPersonalizado = new google.maps.Marker({
+              position: new google.maps.LatLng(results[0].geometry.location.G, results[0].geometry.location.K),
+              map: map,
+              icon: image
+            });
+
+            marcadorPersonalizado.setMap(map);
+
+            infowindow = new google.maps.InfoWindow({
+              content: text,
+              maxWidth: 700
+            });
+
+            infowindow.open(map, marcadorPersonalizado);
+
+        } else {
+          alert('Geocoder falhou por conta de: ' + status);
+        }
       });
-
-      marcadorPersonalizado.setMap(map);
-
-      infowindow = new google.maps.InfoWindow({
-        content: text,
-        maxWidth: 700
-      });
-
-      infowindow.open(map, marcadorPersonalizado);
 
       openNofify(name, text, image);
     };
@@ -210,10 +209,9 @@
           text = data.text,
           name = data.name, 
           image = data.image,
-          lat = data.lat, 
-          lng = data.lng;
+          endereco = data.endereco;
 
-        showMapTweet(text, name, image, lat, lng);
+        showMapTweet(text, name, image, endereco);
 
         // $("#tweet-list").append("<li class='tweet-item'><a class='tweet-link' target='_blank' href='#'><figure><img src='" + image + "'/></figure><div class='text'><h4>" + name + "</h4><p>" + text + "</p></div></a></li>");
     });
