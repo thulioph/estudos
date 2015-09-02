@@ -33,7 +33,7 @@ io.sockets.on('connection', function(socket) {
     
     var tweetJSON = {
       text: tweet.text,
-      name: tweet.screen_name,
+      name: tweet.user.screen_name,
       image: tweet.user.profile_image_url,
       lat: tweet.geo.coordinates[0],
       lng: tweet.geo.coordinates[1]
