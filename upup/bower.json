@@ -1,0 +1,20 @@
+{
+  "name": "upup",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thulioph/estudos",
+  "authors": [
+    "thulioph <thulioph@gmail.com>"
+  ],
+  "description": "brincando com o upup",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "UpUp": "https://github.com/TalAter/UpUp/"
+  }
+}
