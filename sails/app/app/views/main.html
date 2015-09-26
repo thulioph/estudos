@@ -1,0 +1,20 @@
+<div class="row marketing">
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="user in users">
+      <div class="panel panel-primary">
+        <header class="panel-heading">{{ user.nome }}</header>
+
+        <div class="panel-body">
+          <h4>{{ user.email }}</h4>
+          <h5>{{ user.telefone }}</h5>
+          <p>{{ user.mensagem }}</p>
+        </div>
+
+        <footer class="panel-footer">
+          <button class="btn btn-danger" ng-click="removerUser(user.id, $index)">Remover</button>
+          <button class="btn btn-primary" ng-click="editUser(user.id)">Editar</button>
+        </footer>
+      </div>
+    </li>
+  </ul>
+</div>
