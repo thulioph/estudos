@@ -1,7 +1,6 @@
-# firebase-app
+## Demo
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+[Link](https://popping-heat-8884.firebaseapp.com/#/login)
 
 ## Build & development
 
