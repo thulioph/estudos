@@ -1,0 +1,74 @@
+<h2>Facebook</h2>
+<button ng-click="facebookLogin()">Login com o Facebook</button>
+
+<p ng-if="authDataFacebook">
+  <figure>
+    <img src="{{ authDataFacebook.facebook.profileImageURL }}" alt="imagem de {{ authDataFacebook.facebook.displayName }}">
+  </figure>
+
+  Nome de usuário: <strong>{{ authDataFacebook.facebook.displayName }}</strong> <br>
+  Sexo: <strong>{{ authDataFacebook.facebook.cachedUserProfile.gender }}</strong> <br>
+  Locale: <strong>{{ authDataFacebook.facebook.cachedUserProfile.locale }}</strong> <br>
+  ID: <strong>{{ authDataFacebook.facebook.id }}</strong> <br>
+  uID: <strong>{{ authDataFacebook.uid }}</strong> <br>
+  Token: <strong>{{ authDataFacebook.token }}</strong> <br>
+</p>
+
+<p ng-if="errorFacebook">Error: <strong>{{ errorFacebook | json }}</strong></p>
+
+<!-- https://www.firebase.com/docs/web/guide/login/facebook.html -->
+
+
+
+<h2>Github</h2>
+<button ng-click="githubLogin()">Login com o Github</button>
+
+<p ng-if="authDataGithub">
+  <figure>
+    <img src="{{ authDataGithub.github.profileImageURL }}" alt="imagem de {{ authDataGithub.github.displayName }}">
+  </figure>
+
+  Nome de usuário: <strong>{{ authDataGithub.github.displayName }}</strong> <br>
+  Email: <strong>{{ authDataGithub.github.email }}</strong> <br>
+  Location: <strong>{{ authDataGithub.github.cachedUserProfile.location }}</strong> <br>
+  ID: <strong>{{ authDataGithub.github.id }}</strong> <br>
+  uID: <strong>{{ authDataGithub.uid }}</strong> <br>
+  Token: <strong>{{ authDataGithub.token }}</strong> <br>
+
+</p>
+
+<p ng-if="errorGithub">Error: <strong>{{ errorGithub | json }}</strong></p>
+
+<!-- https://www.firebase.com/docs/web/guide/login/github.html -->
+
+
+
+<h2>Twitter</h2>
+<button ng-click="twitterLogin()">Login com o Twitter</button>
+
+<p ng-if="authDataTwitter">
+  <figure>
+  <img src="{{ authDataTwitter.twitter.profileImageURL }}" alt="imagem de {{ authDataTwitter.twitter.displayName }}">
+  </figure>
+
+  Nome de usuário: <strong>{{ authDataTwitter.twitter.displayName }}</strong> <br>
+  Email: <strong>{{ authDataTwitter.twitter.email }}</strong> <br>
+  Lang: <strong>{{ authDataTwitter.twitter.cachedUserProfile.lang }}</strong> <br>
+  Location: <strong>{{ authDataTwitter.twitter.cachedUserProfile.location }}</strong> <br>
+  ID: <strong>{{ authDataTwitter.twitter.id }}</strong> <br>
+  uID: <strong>{{ authDataTwitter.uid }}</strong> <br>
+  Token: <strong>{{ authDataTwitter.token }}</strong> <br>
+
+</p>
+<p ng-if="errorTwitter">Error: <strong>{{ errorTwitter | json }}</strong></p>
+
+<!-- https://www.firebase.com/docs/web/guide/login/twitter.html -->
+
+
+
+<h2>Google</h2>
+<button ng-click="googleLogin()">Login com o Google</button>
+<p ng-if="authDataGoogle">Logged in user: <strong>{{ authDataGoogle | json }}</strong></p>
+<p ng-if="errorGoogle">Error: <strong>{{ errorGoogle | json }}</strong></p>
+
+<!-- https://www.firebase.com/docs/web/guide/login/google.html -->
