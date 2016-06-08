@@ -1,0 +1,63 @@
+/*
+  level 1
+  Containers do mesmo nível, se comportam como flex
+*/
+
+body {
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 80%;
+  padding: 1em;
+  height: 100vh;
+
+  /*Flexbox*/
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  height: 100%;
+  background-color: black;
+
+  /*Flexbox*/
+  display: flex;
+}
+
+header {
+  background-color: pink;
+}
+
+nav {
+  background-color: orange;
+
+  /*Flexbox*/
+  flex: 1;
+}
+
+article {
+  background-color: purple;
+
+  /*Flexbox*/
+  flex: 2 2 12em;
+}
+
+aside {
+  background-color: green;
+
+  /*Flexbox*/
+  flex: 1;
+}
+
+footer {
+  background-color: blue;
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside {
+    order: -1;
+  }
+}
