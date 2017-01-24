@@ -1,0 +1,89 @@
+<!--
+  Este exemplo contempla a utilização de:
+  v-bind:attributo
+  methods
+  computed
+  v-if
+  v-for
+
+  [episodes/6]
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vuejs - Attribute class binding</title>
+
+  <style>
+    .color-red { color: red; }
+    .bg-red { background-color: red; }
+  </style>
+</head>
+<body>
+  <aside id="root">
+    <button :title="title"> Hover over me </button>
+
+    <h1 :class="className">Hello World</h1>
+
+    <button @click="toggleClass" :class="{ 'bg-red': isLoading }">Toggle me</button>
+
+    <h1 v-text="reversedMessage"></h1>
+
+    <ul>
+      <h1>All tasks</h1>
+      <li v-for="task in tasks">{{ task.description }}</li>
+    </ul>
+
+    <ul>
+      <h1>Imcomplete tasks</h1>
+      <li v-for="task in incompleteTasks">{{ task.description }}</li>
+    </ul>
+  </aside>
+
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data: {
+        title: 'Now the title is being set through Javascript.',
+        className: 'color-red',
+        isLoading: false,
+        message: 'Hello World',
+        tasks: [
+          { description: 'Lavar os pratos', completed: true },
+          { description: 'Comprar pão', completed: false },
+          { description: 'Jogar o lixo', completed: false },
+          { description: 'Forrar a cama', completed: true },
+          { description: 'Tomar banho', completed: true },
+          { description: 'Comer', completed: false }
+        ]
+      },
+
+      methods: {
+        toggleClass() {
+          this.isLoading = true;
+        }
+      },
+
+      computed: {
+        reversedMessage() {
+          return this.message.split('').reverse().join('');
+        },
+
+        incompleteTasks() {
+          return this.tasks.filter((task) => !task.completed);
+        }
+      }
+    });
+
+    // o (v-bind) procura o nome do atributo no objeto (data);
+    // o (v-bind:title="title") pode ser escrito utilizando apenas (:)
+    // :title="title"
+    //
+    // quando se precisa adicionar uma lógica mais complexta ao template
+    // crie um método no computed e utilize-o no template.
+    // o (computed) se assemelha muito aos `filtros` do Angular
+  </script>
+</body>
+</html>

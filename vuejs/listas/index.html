@@ -1,0 +1,85 @@
+<!--
+  Este exemplo contempla a utilização de
+  v-model
+  v-on:event ou @event
+  v-text
+  methods
+  mounted
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vuejs - Listas</title>
+</head>
+<body>
+  <aside id="root">
+    <p>{{ name }} or {{ nickname }}</p>
+
+    <ul>
+      <legend>utilizando as chaves</legend>
+      <li v-for="name in names">{{ name }}</li>
+    </ul>
+
+    <ul>
+      <legend>utilizando v-text</legend>
+      <li v-for="name in names" v-text="name"></li>
+    </ul>
+
+    <input type="text" v-model="newName">
+    <button @click="addName">Add Name</button>
+    <!--
+      (v-on) é a diretiva responsável por registrar eventos no Vue
+      após os (:) adicione que tipo de evento você quer realizar o trigger
+
+      uma outra maneira de registrar eventos no vue é
+      removendo o v-on e trocando por @ que resulta em: @click=""
+     -->
+  </aside>
+
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      // (el) é o local onde o vue irá "funcionar"
+      // se assemelha ao `ng-app` do Angular.
+
+      data: {
+        name: 'Jonas Brother',
+        nickname: 'JoB',
+        names: ['Joe', 'Mary', 'Jane', 'Jack'],
+        newName: ''
+      },
+      // o objeto (data) contém os modelos (v-model)
+      // com o conteúdo que será realizado o bind.
+      //
+      // o array de nomes é acessado no html utilizando o (v-for)
+      // esse modelo se assemelha com o `ng-repeat` do Angular.
+
+      methods: {
+        addName() {
+          this.names.push(this.newName);
+          this.newName = '';
+        }
+      },
+      // qualquer método que você queria criar vem aqui dentro do objeto (methods)
+      // quando você se refere ao this dentro dos métodos, eles sempre vão apontar
+      // pro objeto (data);
+
+      mounted() {
+        alert('Mounted!');
+      }
+      // o (mounted) é uma função que é chamada logo após a instância do (new Vue)
+      // ser "montada", só é chamado uma única vez.
+      // se assemelha muito com o `ng-init` de um controller no Angular.
+    });
+
+    // abra o devtools do chrome e adicione um ítem ao array de nomes
+    // você verá que o conteúdo que foi alterado no console, reflete em todo canto.
+    //
+    // adicione ao seu editor de código
+    // install packages -> vuejs syntax / vuejs snippets
+  </script>
+</body>
+</html>

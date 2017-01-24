@@ -1,0 +1,39 @@
+<!--
+  Este exemplo contempla apenas um simples hello world e conceitos básicos
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vuejs - Data binding</title>
+</head>
+<body>
+
+    <!--
+      As diretivas do Vue são iniciadas com o prefixo `v-`
+     -->
+
+  <aside id="root">
+    <input type="text" v-model="message">
+
+    <p>O valor do input é: {{ message }}</p>
+  </aside>
+
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data: {
+        message: 'Hello World!'
+      }
+    });
+
+    // `el` é o local onde o vue irá "funcionar"
+    // se assemelha ao ng-app do Angular.
+    //
+    // o objeto `data` contém os modelos (v-model)
+    // com o conteúdo que será realizado o bind.
+  </script>
+</body>
+</html>
