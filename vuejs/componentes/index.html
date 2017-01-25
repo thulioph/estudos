@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vuejs - Componentes</title>
+</head>
+
+  <style>
+    .green {
+      color: green;
+    }
+  </style>
+<body>
+  <aside class="resume">
+    <h3>Resumo:</h3>
+    <p>Este exemplo contempla o uso de: <b>componentes</b>, componentes aninhados.</p>
+  </aside>
+
+  <section id="root">
+    <task-list></task-list>
+
+    <button
+      :class="{ 'green': isCompleted }"
+      @click="toggleCompleted">
+
+      Toggle completed
+    </button>
+  </section>
+
+  <script
+    src="https://unpkg.com/vue@2.1.10/dist/vue.js">
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
