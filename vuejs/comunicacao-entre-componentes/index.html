@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vuejs - Comunicação entre componentes</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css">
+</head>
+<body>
+  <aside class="resume">
+    <h3>Resumo:</h3>
+    <p>Este exemplo contempla o uso de: <b>componentes</b>, <b>componentes aninhados</b> e <b>comunicação entre os componentes</b>.</p>
+  </aside>
+
+  <section id="root" class="container">
+    <coupon></coupon>
+
+    <p v-if="isCouponApplied">It was applied!</p>
+  </section>
+
+  <script
+    src="https://unpkg.com/vue@2.1.10/dist/vue.js">
+  </script>
+
+  <!-- <script src="main.js"></script> -->
+  <script src="main_shared-events.js"></script>
+</body>
+</html>
