@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vuejs - Componentes</title>
+</head>
+
+  <style>
+    .green {
+      color: green;
+    }
+  </style>
+<body>
+  <aside class="resume">
+    <h3>Resumo:</h3>
+    <p>Este exemplo contempla o uso de: <b>componentes inline</b>.</p>
+  </aside>
+
+  <section id="root">
+    <progress-view inline-template>
+      <div>
+        <h1>Seu progresso é de: {{ progressRate }}%</h1>
+
+        <button @click="progressRate += 10">Update progress</button>
+      </div>
+    </progress-view>
+  </section>
+
+  <script
+    src="https://unpkg.com/vue@2.1.10/dist/vue.js">
+  </script>
+
+  <script src="main.js"></script>
+</body>
+</html>
