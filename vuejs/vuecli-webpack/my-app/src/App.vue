@@ -26,7 +26,16 @@
 
     data () {
       return {
+        user: 'thulioph'
       }
+    },
+
+    mounted() {
+      console.info('Mounted now!');
+      axios
+        .get(`https://api.github.com/users/${this.user}`)
+        .then()
+        .catch();
     }
   }
 </script>
@@ -42,4 +51,7 @@
   hot module replacement
   (dar uma olhada no episódio para entender o conceito)
   https://laracasts.com/series/learn-vue-2-step-by-step/episodes/17
+
+  Axios
+  https://laracasts.com/series/learn-vue-2-step-by-step/episodes/18
  -->
