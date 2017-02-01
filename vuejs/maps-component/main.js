@@ -1,3 +1,17 @@
+window.Event = new class {
+  constructor() {
+    this.vue = new Vue();
+  }
+
+  fire(event, data = null) {
+    this.vue.$emit(event, data);
+  }
+
+  listen(event, callback) {
+    this.vue.$on(event, callback);
+  }
+}
+
 class Gmap {
   constructor(lat, lng, zoom = 10) {
     this.mapContainer = document.getElementById('map');
@@ -60,7 +74,8 @@ Vue.component('g-map', {
   data() {
     return {
       lat: -8.1958956,
-      lng: -34.9361942
+      lng: -34.9361942,
+      location: ''
     }
   },
 
@@ -72,12 +87,15 @@ Vue.component('g-map', {
     },
 
     initMap() {
+      console.log(this.location);
       this.Mapa = new Gmap(this.lat, this.lng);
     }
   },
 
   created() {
     console.log('O componente foi criado!');
+
+    Event.listen('getLocation', data => this.location = data.location);
   }
 });
 
@@ -91,7 +109,9 @@ new Vue({
 
     axios.get('https://api.github.com/users/thulioph')
     .then(function (response) {
-      console.log(response.data);
+      Event.fire('getLocation', {
+        location: response.data.location
+      });
     })
     .catch(function (error) {
       console.log(error);
