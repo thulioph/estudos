@@ -1,6 +1,5 @@
 class Gmap {
-  constructor(mapContainer, lat, lng, zoom = 10) {
-    // this.mapContainer = mapContainer;
+  constructor(lat, lng, zoom = 10) {
     this.mapContainer = document.getElementById('map');
 
     this.mapOptions = {
@@ -52,10 +51,8 @@ Vue.component('g-map', {
       </div>
 
       <footer class="card-footer">
-        <a @click="initMap" class="card-footer-item">Init Map</a>
-        <a @click="marker" class="card-footer-item">Marker</a>
-        <a @click="edit" class="card-footer-item">Edit</a>
-        <a @click="remove" class="card-footer-item">Delete</a>
+        <a @click="initMap" class="card-footer-item">Mapa</a>
+        <a @click="marker" class="card-footer-item">Marcador</a>
       </footer>
     </div>
   `,
@@ -69,19 +66,13 @@ Vue.component('g-map', {
 
   methods: {
     marker() {
-      this.Mapa.Marker();
-    },
+      let marker = this.Mapa.Marker();
 
-    edit() {
-      this.Mapa.InfoWindow(this.Mapa.Marker(), 'Dale papai!');
-    },
-
-    remove() {
-      console.info('Remove');
+      this.Mapa.InfoWindow(marker, 'Dale papai!');
     },
 
     initMap() {
-      this.Mapa = new Gmap(this.element, this.lat, this.lng);
+      this.Mapa = new Gmap(this.lat, this.lng);
     }
   },
 
@@ -95,11 +86,19 @@ Vue.component('g-map', {
 new Vue({
   el: '#root',
 
-  mounted() {
-    console.log('ai ai ai ai ai ');
-  },
-
   created() {
     console.log('ui ui ui ui ui ');
+
+    axios.get('https://api.github.com/users/thulioph')
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  },
+
+  mounted() {
+    console.log('ai ai ai ai ai ');
   }
 });
