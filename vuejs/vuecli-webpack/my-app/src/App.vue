@@ -36,7 +36,10 @@
 </style>
 
 <!--
-  O `components` "avisa" ao root component para ouvir
+  O objeto `components` "avisa" ao root component para ouvir
   os componentes filhos.
 
+  hot module replacement
+  (dar uma olhada no episódio para entender o conceito)
+  https://laracasts.com/series/learn-vue-2-step-by-step/episodes/17
  -->
