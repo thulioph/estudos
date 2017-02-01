@@ -26,7 +26,7 @@
       <template slot="title">Google Maps</template>
 
       <template slot="body">
-        <div class="map" id="map""></div>
+        <div class="map" id="map"></div>
       </template>
     </g-map>
   </section>
@@ -37,18 +37,11 @@
   </script>
 
   <script
-    src="https://maps.googleapis.com/maps/api/js?callback=window.dale"
+    src="https://maps.googleapis.com/maps/api/js"
     async
     defer>
   </script>
 
   <script src="main.js"></script>
-  <script>
-    window.dale = function() {
-      this.Event.vue.$emit('dale', {
-        map: this.google
-      });
-    }
-  </script>
 </body>
 </html>

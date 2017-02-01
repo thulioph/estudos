@@ -1,9 +1,11 @@
 class Gmap {
-  constructor(mapContainer, latLng, zoom = 10) {
-    this.mapContainer = mapContainer;
+  constructor(mapContainer, lat, lng, zoom = 10) {
+    // this.mapContainer = mapContainer;
+    this.mapContainer = document.getElementById('map');
+
     this.mapOptions = {
       zoom: zoom,
-      center: latLng,
+      center: new google.maps.LatLng(lat, lng),
       mapTypeId: 'roadmap',
       scrollwheel: false
     };
@@ -13,7 +15,7 @@ class Gmap {
 
   Marker() {
     return new google.maps.Marker({
-      position: this.latLng,
+      position: this.mapOptions.center,
       map: this.map
     });
   }
@@ -23,20 +25,6 @@ class Gmap {
 
     infowindow.setContent(content);
     infowindow.open(this.map, marker);
-  }
-}
-
-window.Event = new class {
-  constructor() {
-    this.vue = new Vue();
-  }
-
-  fire(event, data = null) {
-    this.vue.$emit(event, data);
-  }
-
-  listen(event, callback) {
-    this.vue.$on(event, callback);
   }
 }
 
@@ -64,6 +52,7 @@ Vue.component('g-map', {
       </div>
 
       <footer class="card-footer">
+        <a @click="initMap" class="card-footer-item">Init Map</a>
         <a @click="marker" class="card-footer-item">Marker</a>
         <a @click="edit" class="card-footer-item">Edit</a>
         <a @click="remove" class="card-footer-item">Delete</a>
@@ -71,34 +60,33 @@ Vue.component('g-map', {
     </div>
   `,
 
-  data: {
-    lat: -8.1958956,
-    lng: -34.9361942,
-    el: document.getElementById('map'),
-    googleMaps: '',
-    latLng: ''
+  data() {
+    return {
+      lat: -8.1958956,
+      lng: -34.9361942
+    }
   },
 
   methods: {
     marker() {
-      let el = document.getElementById('map');
-
-      var Mapa = new Gmap(el, this.latLng);
+      this.Mapa.Marker();
     },
 
     edit() {
-      console.info('Edit');
+      this.Mapa.InfoWindow(this.Mapa.Marker(), 'Dale papai!');
     },
 
     remove() {
       console.info('Remove');
+    },
+
+    initMap() {
+      this.Mapa = new Gmap(this.element, this.lat, this.lng);
     }
   },
 
   created() {
-    Event.listen('dale', (data) => {
-      this.latLng = new data.map.maps.LatLng(this.lat, this.lng);
-    });
+    console.log('O componente foi criado!');
   }
 });
 
