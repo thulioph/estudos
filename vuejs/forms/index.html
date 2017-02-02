@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Forms</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css">
+  </head>
+  <body>
+    <div id="app" class="container">
+      <span class="help is-success" v-text="postReturn"></span>
+
+      <form @submit.prevent="onSubmitForm" @keydown="searchBy($event)">
+        <label class="label" for="name">Name</label>
+        <p class="control">
+          <input class="input" type="text" placeholder="Name here" id="name" v-model="name">
+        </p>
+
+        <label class="label" for="email">Email</label>
+        <p class="control">
+          <input class="input" type="email" placeholder="Email here" id="email" v-model="email">
+        </p>
+
+        <div class="control is-grouped">
+          <p class="control">
+            <button class="button is-primary">Submit</button>
+          </p>
+        </div>
+      </form>
+
+    </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+  </body>
+</html>
+
+<!--
+  No formulário, perceba que existe
+  @submit.prevent
+
+  esse `.prevent` ele é conhecido como event modifier.
+  https://vuejs.org/v2/guide/events.html#Event-Modifiers
+
+  existem outros modificadores de evento, veja o link acima
+  para mais informações
+
+  Adicionando o @keydown no formulário e passando o $event
+  qualquer interação de keydown dentro do input eu consigo pegar
+  utilizando o (event.target)
+ -->
