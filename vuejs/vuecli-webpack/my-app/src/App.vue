@@ -2,8 +2,6 @@
   <div id="app">
     <message>Hello World!</message>
 
-    <message>Hello World again!</message>
-
     <modal>
       <template slot="header">Qualquer Título</template>
 
@@ -12,31 +10,20 @@
         <a class="button">Cancel</a>
       </template>
     </modal>
+
+    <card></card>
   </div>
 </template>
 
 <script>
   import Message from './components/Messave.vue';
   import Modal from './components/Modal.vue';
+  import Card from './components/Card.vue';
 
   export default {
     name: 'app',
 
-    components: { Message, Modal },
-
-    data () {
-      return {
-        user: 'thulioph'
-      }
-    },
-
-    mounted() {
-      console.info('Mounted now!');
-      axios
-        .get(`https://api.github.com/users/${this.user}`)
-        .then()
-        .catch();
-    }
+    components: { Message, Modal, Card }
   }
 </script>
 
