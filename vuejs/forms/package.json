@@ -1,0 +1,20 @@
+{
+  "name": "forms",
+  "version": "1.0.0",
+  "description": "testando a utilização do vue com webpack",
+  "main": "app.js",
+  "scripts": {
+    "webpack": "webpack --hide-modules",
+    "dev": "webpack --hide-modules --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^2.2.0"
+  },
+  "devDependencies": {
+    "axios": "^0.15.3",
+    "vue": "^2.1.10",
+    "webpack": "^2.2.1"
+  }
+}
