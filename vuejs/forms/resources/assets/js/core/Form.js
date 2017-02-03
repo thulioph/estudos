@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 class Form {
   constructor(data) {
     this.originalData = data;
@@ -12,6 +14,8 @@ class Form {
   }
 
   submit(url) {
+    console.log(this.originalData);
+
     axios
       .post(url, this.originalData)
         .then(this.onSuccess)

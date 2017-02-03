@@ -8,17 +8,28 @@
   </head>
   <body>
     <div id="app" class="container">
-      <span class="help is-success" v-text="postReturn"></span>
+      <example></example>
+      <!-- <span class="help is-success" v-text="postReturn"></span> -->
 
       <form @submit.prevent="onSubmitForm" @keydown="searchBy($event)">
         <label class="label" for="name">Name</label>
         <p class="control">
-          <input class="input" type="text" placeholder="Name here" id="name" v-model="name">
+          <input
+            class="input"
+            type="text"
+            placeholder="Name here"
+            id="name"
+            v-model="form.name">
         </p>
 
-        <label class="label" for="email">Email</label>
+        <label class="label" for="description">Description</label>
         <p class="control">
-          <input class="input" type="email" placeholder="Email here" id="email" v-model="email">
+          <input
+            class="input"
+            type="text"
+            placeholder="Description here"
+            id="description"
+            v-model="form.description">
         </p>
 
         <div class="control is-grouped">
@@ -30,6 +41,7 @@
 
     </div>
 
+  <script src="public/js/vendor.js"></script>
   <script src="public/js/app.js"></script>
   </body>
 </html>
