@@ -2,6 +2,7 @@ import VueRouter from 'vue-router';
 
 let HomeComponent = require('./views/Home.vue');
 let AboutComponent = require('./views/About.vue');
+let ContactComponent = require('./views/Contact.vue');
 
 let routes = [
   {
@@ -11,6 +12,10 @@ let routes = [
   {
     path: '/about',
     component: AboutComponent
+  },
+  {
+    path: '/contact',
+    component: ContactComponent
   }
 ];
 
