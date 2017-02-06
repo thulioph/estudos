@@ -1,6 +1,6 @@
-## Form
+## Router
 
-Este exemplo possui um formulário contendo dois campos, que ao serem submetidos os dados irão para uma api fake utilizando o [JSONPlaceholder](https://jsonplaceholder.typicode.com/), e é utilizado o Webpack.
+Este demo possui a utilização do Vue Router para criação de uma SPA.
 
 ### `npm install --save-dev`
 Para instalar todas as dependências do projeto;
