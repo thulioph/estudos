@@ -53,7 +53,7 @@ export default {
 
       <!-- Hero footer: will stick at the bottom -->
       <div class="hero-foot">
-        <nav class="tabs">
+        <nav class="tabs is-boxed">
           <div class="container">
             <ul>
               <router-link tag="li" to="/" exact>
