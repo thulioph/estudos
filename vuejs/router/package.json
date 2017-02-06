@@ -4,9 +4,9 @@
   "description": "testando a utilização do vue com webpack",
   "main": "app.js",
   "scripts": {
-    "webpack": "export NODE_ENV=development && webpack --hide-modules",
-    "dev": "export NODE_ENV=development && webpack --hide-modules --watch",
-    "production": "export NODE_ENV=production && webpack --hide-modules"
+    "webpack": "export NODE_ENV=development && webpack --hide-modules --progress",
+    "dev": "export NODE_ENV=development && webpack --hide-modules --watch --progress",
+    "production": "export NODE_ENV=production && webpack --hide-modules --progress"
   },
   "author": "",
   "license": "MIT",
@@ -18,7 +18,11 @@
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.26.1",
     "vue": "^2.1.10",
+    "vue-loader": "^10.3.0",
+    "vue-router": "^2.2.0",
+    "vue-template-compiler": "^2.1.10",
     "webpack": "^2.2.1"
   }
 }

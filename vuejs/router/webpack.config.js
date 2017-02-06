@@ -18,6 +18,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/, // obtém todos os .vue
+        loader: 'vue-loader' // utiliza o loader do vue
+      },
+      {
         test: /\.js$/, // obtém todos os .js
         exclude: /node_modules/, // menos os da pasta node_modules
         loader: 'babel-loader' // utiliza o loader do babel
