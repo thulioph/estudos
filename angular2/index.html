@@ -1,0 +1,36 @@
+<!--
+  O systemJS é o responsável por carregar os arquivos Javascript
+  de maneira assíncrona
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Angular 2 Hello World</title>
+
+  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+  <script>
+    let systemObj = {
+      packages: {
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        }
+      }
+    };
+
+    System.config(systemObj);
+    System.import('app/bootstrap').then(null, console.error.bind(console));
+  </script>
+</head>
+<body>
+  <my-app>Carregando..</my-app>
+</body>
+</html>
