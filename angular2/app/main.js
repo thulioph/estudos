@@ -3,7 +3,7 @@
 //
 // Initia o angular2 chamando o bootstrap e
 // seta o AppComponent como o componente pai da aplicação
-System.register(['angular2/platform/browser', './app-component'], function(exports_1) {
+System.register(['angular2/platform/browser', './app.component'], function(exports_1) {
     var browser_1, app_component_1;
     return {
         setters:[
@@ -18,4 +18,4 @@ System.register(['angular2/platform/browser', './app-component'], function(expor
         }
     }
 });
-//# sourceMappingURL=bootstrap.js.map
+//# sourceMappingURL=main.js.map
