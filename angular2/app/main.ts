@@ -5,7 +5,9 @@
 // seta o AppComponent como o componente pai da aplicação
 
 import { bootstrap } from 'angular2/platform/browser';
+import 'rxjs/Rx';
+import { HTTP_PROVIDERS } from 'angular2/http';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 
-bootstrap(AppComponent);
+bootstrap(AppComponent, [HTTP_PROVIDERS]);
