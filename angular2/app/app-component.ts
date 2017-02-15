@@ -7,7 +7,10 @@ import { Component } from 'angular2/core';
 
 @Component({
   selector: 'my-app',
-  template: '<h1>Aqui vem alguma coisa! </h1>'
-});
+  templateUrl: 'app/views/myapp.html'
+})
 
-export class AppComponent {}
+export class AppComponent {
+  title:string = 'Aqui vem alguma coisa!';
+  name:string = 'Notorious';
+}
