@@ -1,0 +1,63 @@
+<h1 class="title">Home</h1>
+
+<br>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="control">
+    <label class="label">Search by:</label>
+
+    <div class="control">
+      <span class="select">
+        <select [(ngModel)]="form.type">
+          <option value="users" selected>User</option>
+          <option value="repositories">Repository</option>
+        </select>
+      </span>
+    </div>
+
+    <div class="control">
+      <input
+        type="text"
+        class="input"
+        placeholder="Faça sua pesquisa"
+        [(ngModel)]="form.search">
+    </div>
+  </div>
+
+  <div class="control">
+    <button class="button is-primary" type="submit">Search</button>
+  </div>
+</form>
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="Project Title">Title</abbr></th>
+      <th><abbr title="Project URL">URL</abbr></th>
+      <th><abbr title="Project Owner">User</abbr></th>
+      <th><abbr title="Project Language">Language</abbr></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="#item of repos">
+      <td>{{item.name}}</td>
+
+      <td>
+        <a href="{{item.html_url}}" target="_blank">
+          {{item.html_url}}
+        </a>
+      </td>
+
+      <td>
+        <a href="{{item.owner.url}}" target="_blank">
+          @{{item.owner.login}}
+        </a>
+      </td>
+
+      <td>{{ item.language }}</td>
+    </tr>
+  </tbody>
+</table>

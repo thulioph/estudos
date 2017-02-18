@@ -9,11 +9,15 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import { HTTP_PROVIDERS } from 'angular2/http';
 
 // Components
+import { HomeComponent } from './home.component';
 import { PessoaComponent } from './pessoa.component';
 import { ProdutoComponent } from './produto.component';
 
 // Services
 import { PessoaService } from '../services/pessoa.service';
+
+// Routes
+import { AppRoutes } from '../routes'
 
 @Component({
   selector: 'my-app',
@@ -27,10 +31,15 @@ import { PessoaService } from '../services/pessoa.service';
 })
 @RouteConfig([
   {
+    path: '/',
+    name:'Home',
+    component: HomeComponent,
+    useAsDefault: true
+  },
+  {
     path: '/pessoas',
     name:'Pessoas',
-    component: PessoaComponent,
-    useAsDefault: true
+    component: PessoaComponent
   },
   {
     path: '/produtos',

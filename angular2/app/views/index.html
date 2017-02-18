@@ -1,11 +1,36 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li>
-        <a [routerLink]="['Pessoas']">Pessoas</a>
-        <a [routerLink]="['Produtos']">Produtos</a>
-      </li>
-    </ul>
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-item">Angular 2</a>
+  </div>
+
+  <div class="nav-center">
+    <a class="nav-item" target="_blank" href="https://github.com/thulioph/estudos/tree/master/angular2">
+      <span class="icon">
+        <i class="fa fa-github"></i>
+      </span>
+    </a>
+
+    <a class="nav-item" target="_blank" href="https://twitter.com/thulioph_">
+      <span class="icon">
+        <i class="fa fa-twitter"></i>
+      </span>
+    </a>
+  </div>
+
+  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+  <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+  <span class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+  <!-- This "nav-menu" is hidden on mobile -->
+  <!-- Add the modifier "is-active" to display it on mobile -->
+  <div class="nav-right nav-menu">
+    <a class="nav-item" [routerLink]="['Home']">Home</a>
+    <a class="nav-item" [routerLink]="['Pessoas']">Pessoas</a>
+    <a class="nav-item" [routerLink]="['Produtos']">Produtos</a>
   </div>
 </nav>
 
