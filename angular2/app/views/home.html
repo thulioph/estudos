@@ -8,7 +8,7 @@
 
     <div class="control">
       <span class="select">
-        <select [(ngModel)]="form.type">
+        <select [(ngModel)]="form.type" (change)="onChange($event.target.value)">
           <option value="users" selected>User</option>
           <option value="repositories">Repository</option>
         </select>
@@ -31,17 +31,24 @@
 
 <br>
 
+<!-- Table for repositories -->
 <table class="table">
   <thead>
-    <tr>
+    <tr *ngIf="type === 'isRepo'">
       <th><abbr title="Project Title">Title</abbr></th>
       <th><abbr title="Project URL">URL</abbr></th>
       <th><abbr title="Project Owner">User</abbr></th>
       <th><abbr title="Project Language">Language</abbr></th>
     </tr>
+
+    <tr *ngIf="type !== 'isRepo'">
+      <th><abbr title="User image">Imagem</abbr></th>
+      <th><abbr title="User login">Login</abbr></th>
+      <th><abbr title="User score">Score</abbr></th>
+    </tr>
   </thead>
 
-  <tbody>
+  <tbody *ngIf="type === 'isRepo'">
     <tr *ngFor="#item of repos">
       <td>{{item.name}}</td>
 
@@ -58,6 +65,24 @@
       </td>
 
       <td>{{ item.language }}</td>
+    </tr>
+  </tbody>
+
+  <tbody *ngIf="type !== 'isRepo'">
+    <tr *ngFor="#item of repos">
+      <td>
+        <figure>
+          <img src="{{item.avatar_url}}" alt="{{item.login}}" width="40">
+        </figure>
+      </td>
+
+      <td>
+        <a href="{{item.html_url}}" target="_blank">
+          @{{item.login}}
+        </a>
+      </td>
+
+      <td>{{ item.score }}</td>
     </tr>
   </tbody>
 </table>

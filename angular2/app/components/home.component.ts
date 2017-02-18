@@ -9,16 +9,24 @@ import { GithubService } from '../services/github.service';
 })
 
 export class HomeComponent {
-  // Atributos
   private submitted: boolean = false;
-  private form = {}
   private repos: Array[];
+  private form = {}
 
   constructor(private _service: GithubService) {}
 
   onSubmit() {
-    this._service.search(this.form).then((result) => this.repos = result.items);
+    console.warn(this.form);
 
+    this._service.search(this.form).then((result) => this.repos = result.items);
     this.form = {};
+  }
+
+  onChange(value) {
+    this.isRepo = false;
+
+    if (value !== 'users') {
+      this.isRepo = true;
+    }
   }
 }
