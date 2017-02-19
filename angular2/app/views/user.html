@@ -1,0 +1,31 @@
+<div class="card" *ngFor="#user of userInfo">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image" style="height: 40px; width: 40px;">
+          <img src="{{user.avatar_url}}" alt="Image">
+        </figure>
+      </div>
+
+      <div class="media-content">
+        <p class="title is-4">{{user.name}}</p>
+        <p class="subtitle is-6">
+          <a
+            target="_blank"
+            href="{{user.html_url}}">
+            @{{user.login}}
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="content">
+      {{user.company}} <br>
+      {{user.location}} <br> <br>
+
+      {{user.bio}} <br><br>
+
+      <small>{{user.updated_at}}</small>
+    </div>
+  </div>
+</div>
