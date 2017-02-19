@@ -23,3 +23,4 @@ Os links que me auxiliaram até o momento foram:
 - http://clubedosgeeks.com.br/programacao/angularjs/iniciando-com-angular-2
 - http://clubedosgeeks.com.br/programacao/angularjs/usando-rotas-em-angular-2
 - http://clubedosgeeks.com.br/programacao/angularjs/angular2-http-services
+- https://www.dev6.com/Angular-2-the-Component-Router-Pt2
