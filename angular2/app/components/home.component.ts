@@ -12,17 +12,31 @@ export class HomeComponent {
   private submitted: boolean = false;
   private repos: Array[];
   private form = {}
+  private isRepo = false;
+  private error = {};
 
   constructor(private _service: GithubService) {}
 
   onSubmit() {
-    console.warn(this.form);
-
-    this._service.search(this.form).then((result) => this.repos = result.items);
-    this.form = {};
+    this._service.search(this.form)
+      .then((result) => {
+        if (result.total_count > 0) {
+          this.error = {};
+          this.repos = result.items
+        } else {
+          this.repos = [];
+          this.error = {
+            status: true,
+            message: 'Não existe nada com o filtro passado.'
+          }
+        }
+      });
   }
 
   onChange(value) {
+    this.repos = [];
+    this.error = {};
+
     this.isRepo = false;
 
     if (value !== 'users') {

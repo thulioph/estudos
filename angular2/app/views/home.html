@@ -31,24 +31,28 @@
 
 <br>
 
+<div *ngIf="error.status" class="notification is-info">
+  {{error.message}}
+</div>
+
 <!-- Table for repositories -->
 <table class="table">
   <thead>
-    <tr *ngIf="type === 'isRepo'">
+    <tr *ngIf="isRepo">
       <th><abbr title="Project Title">Title</abbr></th>
       <th><abbr title="Project URL">URL</abbr></th>
       <th><abbr title="Project Owner">User</abbr></th>
       <th><abbr title="Project Language">Language</abbr></th>
     </tr>
 
-    <tr *ngIf="type !== 'isRepo'">
+    <tr *ngIf="!isRepo">
       <th><abbr title="User image">Imagem</abbr></th>
       <th><abbr title="User login">Login</abbr></th>
       <th><abbr title="User score">Score</abbr></th>
     </tr>
   </thead>
 
-  <tbody *ngIf="type === 'isRepo'">
+  <tbody *ngIf="isRepo">
     <tr *ngFor="#item of repos">
       <td>{{item.name}}</td>
 
@@ -68,7 +72,7 @@
     </tr>
   </tbody>
 
-  <tbody *ngIf="type !== 'isRepo'">
+  <tbody *ngIf="!isRepo">
     <tr *ngFor="#item of repos">
       <td>
         <figure>

@@ -60,7 +60,7 @@ export class AppComponent {
   // Método construtor
   // @param _service: PessoaService
   constructor(private _service: PessoaService) {
-    this.getPessoas();
+    // this.getPessoas();
   }
 
   // Listando pessoas
