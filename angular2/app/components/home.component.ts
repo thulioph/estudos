@@ -33,7 +33,7 @@ export class HomeComponent {
       });
   }
 
-  onChange(value) {
+  onChange(value: String) {
     this.repos = [];
     this.error = {};
 
@@ -42,5 +42,15 @@ export class HomeComponent {
     if (value !== 'users') {
       this.isRepo = true;
     }
+  }
+
+  viewMore(data: Object, isRepo: boolean) {
+    if (isRepo) {
+      let url = 'repositories';
+    } else {
+      let url = 'users';
+    }
+
+    console.warn(data);
   }
 }
