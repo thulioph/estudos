@@ -47,59 +47,8 @@ import { UserService } from '../services/user.service';
 
 export class AppComponent {
 
-  // Atributos
   private id:number;
   private nome, email: string;
-  // private pessoas: Array[];
-  // private pessoa: AppComponent = {};
 
-  constructor(private _service: UserService) {
-    // this.getPessoas();
-  }
-
-  // // Listando pessoas
-  // getPessoas() {
-  //   console.info('Obtendo...');
-
-  //   this._service.getPessoas().then(pessoas => { this.pessoas = pessoas });
-  // }
-
-  // // Salvar pessoas
-  // salvarPessoa() {
-  //   console.info('Salvando...');
-
-  //   if(this.pessoa.id) {
-  //     this._service.editarPessoa(this.pessoa).then(res => {
-  //       this.getPessoas()
-  //     })
-  //   } else {
-  //     this._service.novaPessoa(this.pessoa).then(res => {
-  //       this.getPessoas()
-  //     })
-  //   }
-  // }
-
-  // // Editar pessoa
-  // // @param item: Array
-  // editarPessoa(item) {
-  //   console.info('Editando...');
-
-  //   this.pessoa = item;
-  // }
-
-  // // Excluir pessoa
-  // excluirPessoa(item) {
-  //   console.info('Excluindo...');
-
-  //   this._service.excluirPessoa(item.id).then(res => {
-  //     this.getPessoas()
-  //   })
-  // }
-
-  // // Cancelar cadastro
-  // cancelar() {
-  //   console.info('Cancelando...');
-
-  //   this.pessoa = {};
-  // }
+  constructor(private _service: UserService) {}
 }
