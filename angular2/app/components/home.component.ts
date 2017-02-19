@@ -1,10 +1,14 @@
 import { Component } from 'angular2/core';
+import { Router, Params } from 'angular2/router';
+
 import { GithubService } from '../services/github.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   templateUrl: 'app/views/home.html',
   providers: [
-    GithubService
+    GithubService,
+    UserService
   ]
 })
 
@@ -15,10 +19,14 @@ export class HomeComponent {
   private isRepo = false;
   private error = {};
 
-  constructor(private _service: GithubService) {}
+  constructor(
+    private _github: GithubService;
+    private _user: UserService;
+    private _router: Router;
+  ) {}
 
   onSubmit() {
-    this._service.search(this.form)
+    this._github.search(this.form)
       .then((result) => {
         if (result.total_count > 0) {
           this.error = {};
@@ -46,11 +54,11 @@ export class HomeComponent {
 
   viewMore(data: Object, isRepo: boolean) {
     if (isRepo) {
-      let url = 'repositories';
+      let url = '/repositories';
     } else {
-      let url = 'users';
+      let url = `/users/${data.login}`;
     }
 
-    console.warn(data);
+    this._router.navigateByUrl(url);
   }
 }

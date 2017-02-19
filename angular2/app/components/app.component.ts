@@ -34,7 +34,7 @@ import { UserService } from '../services/user.service';
     useAsDefault: true
   },
   {
-    path: '/user/:id',
+    path: '/users/:username',
     name:'User',
     component: UserComponent
   },
