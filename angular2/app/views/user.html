@@ -29,3 +29,39 @@
     </div>
   </div>
 </div>
+
+<br>
+
+<div class="columns is-multiline is-mobile">
+  <div class="column is-one-third" *ngFor="#item of userRepo">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">{{item.name}}</p>
+        <a class="card-header-icon">
+          <span class="icon">
+            <i class="fa" [ngClass]="{
+              'fa-code-fork': item.fork
+              }"></i>
+          </span>
+        </a>
+      </header>
+
+      <div class="card-content">
+        <div class="content">
+          {{item.description}}
+          <br>
+          <small>{{item.updated_at}}</small>
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <a href="{{item.html_url}}"
+          target="_blank"
+          class="card-footer-item">
+
+          Ver projeto
+        </a>
+      </footer>
+    </div>
+  </div>
+</div>
